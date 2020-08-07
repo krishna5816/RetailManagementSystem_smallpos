@@ -1,0 +1,862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3956F7BA-C9D6-48E4-9C62-BF6338514ECC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RetailManagementSystem</RootNamespace>
+    <AssemblyName>RetailManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BaseControls">
+      <HintPath>C:\Users\krishna Siptungkha\Downloads\Telegram Desktop\BaseControls.dll</HintPath>
+    </Reference>
+    <Reference Include="cmscontrols">
+      <HintPath>..\packages\cmscontrols.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.8\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminSetting\AddKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSetting\AddKey.designer.cs">
+      <DependentUpon>AddKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSetting\AdminSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSetting\AdminSetting.Designer.cs">
+      <DependentUpon>AdminSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSetting\ServerSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSetting\ServerSetting.Designer.cs">
+      <DependentUpon>ServerSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSetting\UserRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSetting\UserRegister.Designer.cs">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSetting\user_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSetting\user_main.Designer.cs">
+      <DependentUpon>user_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bills\BarcodeViwer.cs" />
+    <Compile Include="Bills\BillPrinter.cs" />
+    <Compile Include="Bills\BillViwer.cs" />
+    <Compile Include="Bills\Bill_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bills\Bill_form.Designer.cs">
+      <DependentUpon>Bill_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bills\Data.cs" />
+    <Compile Include="Bills\ItemNameViwer.cs" />
+    <Compile Include="Customers\Billviwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customers\Billviwer.Designer.cs">
+      <DependentUpon>Billviwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Customeredited_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\Customeredited_form.Designer.cs">
+      <DependentUpon>Customeredited_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Customers_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\Customers_Add.Designer.cs">
+      <DependentUpon>Customers_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Customers_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\Customers_Details.Designer.cs">
+      <DependentUpon>Customers_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Customers_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\Customers_list.Designer.cs">
+      <DependentUpon>Customers_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\CustomerViwer.cs" />
+    <Compile Include="Customers\Customer_Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\Customer_Sale.Designer.cs">
+      <DependentUpon>Customer_Sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Duepaids.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\Duepaids.Designer.cs">
+      <DependentUpon>Duepaids.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\Advanceformclosedargs.cs" />
+    <Compile Include="Custom\DataSaveargs.cs" />
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Advance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Advance.Designer.cs">
+      <DependentUpon>Advance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\AdvanceViwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees\AdvanceViwer.Designer.cs">
+      <DependentUpon>AdvanceViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\EmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\EmployeeDetails.Designer.cs">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Employees_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Employees_Add.Designer.cs">
+      <DependentUpon>Employees_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Employees_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Employees_list.Designer.cs">
+      <DependentUpon>Employees_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\EmployeeViwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees\EmployeeViwer.Designer.cs">
+      <DependentUpon>EmployeeViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Employees_edited.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Employees_edited.Designer.cs">
+      <DependentUpon>Employees_edited.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Salary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Salary.Designer.cs">
+      <DependentUpon>Salary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\ModalFormTemplate1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\ModalFormTemplate1.Designer.cs">
+      <DependentUpon>ModalFormTemplate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\SalaryViwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees\SalaryViwer.Designer.cs">
+      <DependentUpon>SalaryViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Add_Expensecat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\Add_Expensecat.Designer.cs">
+      <DependentUpon>Add_Expensecat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Add_Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\Add_Expenses.Designer.cs">
+      <DependentUpon>Add_Expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Edit_Expensecat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\Edit_Expensecat.Designer.cs">
+      <DependentUpon>Edit_Expensecat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Edit_Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\Edit_Expenses.Designer.cs">
+      <DependentUpon>Edit_Expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Expencesview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\Expencesview.Designer.cs">
+      <DependentUpon>Expencesview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\expensecat_viwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Expenses\expensecat_viwer.Designer.cs">
+      <DependentUpon>expensecat_viwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\expenses_viwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Expenses\expenses_viwer.Designer.cs">
+      <DependentUpon>expenses_viwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Expense_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\Expense_List.Designer.cs">
+      <DependentUpon>Expense_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="installation\install.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="installation\install.Designer.cs">
+      <DependentUpon>install.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\Advanceform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\EditCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\EditCategories.Designer.cs">
+      <DependentUpon>EditCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\ItemViwer.cs" />
+    <Compile Include="Items\Item_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\Item_edit.Designer.cs">
+      <DependentUpon>Item_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\ModalBackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\ModalBackground.Designer.cs">
+      <DependentUpon>ModalBackground.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Item_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\Item_Add.Designer.cs">
+      <DependentUpon>Item_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Item_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\Item_List.Designer.cs">
+      <DependentUpon>Item_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\nn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\advance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\billitem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\categoriespartial.cs" />
+    <Compile Include="Models\category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customerpaid.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customerpartial.cs" />
+    <Compile Include="Models\employee.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\expence.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\expencecategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\expensescategories.cs" />
+    <Compile Include="Models\expensespartial.cs" />
+    <Compile Include="Models\ficialyear.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Itempartial.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\partiespartial.cs" />
+    <Compile Include="Models\payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\salary.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\salesreturn.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\salesreturnitem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\supplieradvance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\supplierpaid.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\supply.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\supplyitem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\variance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vendor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reorts\ExpenseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reorts\ExpenseReport.Designer.cs">
+      <DependentUpon>ExpenseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reorts\PurchaseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reorts\PurchaseReport.Designer.cs">
+      <DependentUpon>PurchaseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reorts\SalesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reorts\SalesReport.Designer.cs">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\DatabaseSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\DatabaseSetup.Designer.cs">
+      <DependentUpon>DatabaseSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Stock_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Stock_Add.Designer.cs">
+      <DependentUpon>Stock_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login_form.Designer.cs">
+      <DependentUpon>login_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reorts\ReportsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reorts\ReportsList.Designer.cs">
+      <DependentUpon>ReportsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\Billviwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vendors\Billviwer.Designer.cs">
+      <DependentUpon>Billviwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\paidviwer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vendors\paidviwer.Designer.cs">
+      <DependentUpon>paidviwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\paidvendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendors\paidvendor.Designer.cs">
+      <DependentUpon>paidvendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\Purchase_items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendors\Purchase_items.Designer.cs">
+      <DependentUpon>Purchase_items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\Vendors_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendors\Vendors_Add.Designer.cs">
+      <DependentUpon>Vendors_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\Vendors_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendors\Vendors_edit.Designer.cs">
+      <DependentUpon>Vendors_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\Vendors_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendors\Vendors_list.Designer.cs">
+      <DependentUpon>Vendors_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\Vendor_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendors\Vendor_Details.Designer.cs">
+      <DependentUpon>Vendor_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\VenViwer.cs" />
+    <EmbeddedResource Include="AdminSetting\AddKey.resx">
+      <DependentUpon>AddKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSetting\AdminSetting.resx">
+      <DependentUpon>AdminSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSetting\ServerSetting.resx">
+      <DependentUpon>ServerSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSetting\UserRegister.resx">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bills\Bill_form.resx">
+      <DependentUpon>Bill_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Billviwer.resx">
+      <DependentUpon>Billviwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Customeredited_form.resx">
+      <DependentUpon>Customeredited_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Customers_Add.resx">
+      <DependentUpon>Customers_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Customers_Details.resx">
+      <DependentUpon>Customers_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Customers_list.resx">
+      <DependentUpon>Customers_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Customer_Sale.resx">
+      <DependentUpon>Customer_Sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\Duepaids.resx">
+      <DependentUpon>Duepaids.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Advance.resx">
+      <DependentUpon>Advance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\AdvanceViwer.resx">
+      <DependentUpon>AdvanceViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\EmployeeDetails.resx">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Employees_Add.resx">
+      <DependentUpon>Employees_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Employees_list.resx">
+      <DependentUpon>Employees_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\EmployeeViwer.resx">
+      <DependentUpon>EmployeeViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Employees_edited.resx">
+      <DependentUpon>Employees_edited.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Salary.resx">
+      <DependentUpon>Salary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\ModalFormTemplate1.resx">
+      <DependentUpon>ModalFormTemplate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\SalaryViwer.resx">
+      <DependentUpon>SalaryViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\Add_Expensecat.resx">
+      <DependentUpon>Add_Expensecat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\Add_Expenses.resx">
+      <DependentUpon>Add_Expenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\Edit_Expensecat.resx">
+      <DependentUpon>Edit_Expensecat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\Edit_Expenses.resx">
+      <DependentUpon>Edit_Expenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\Expencesview.resx">
+      <DependentUpon>Expencesview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\expensecat_viwer.resx">
+      <DependentUpon>expensecat_viwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\expenses_viwer.resx">
+      <DependentUpon>expenses_viwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\Expense_List.resx">
+      <DependentUpon>Expense_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="installation\install.resx">
+      <DependentUpon>install.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\Advanceform.resx">
+      <DependentUpon>Advanceform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\EditCategories.resx">
+      <DependentUpon>EditCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Item_edit.resx">
+      <DependentUpon>Item_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\ModalBackground.resx">
+      <DependentUpon>ModalBackground.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Item_Add.resx">
+      <DependentUpon>Item_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Item_List.resx">
+      <DependentUpon>Item_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\nn.resx">
+      <DependentUpon>nn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reorts\ExpenseReport.resx">
+      <DependentUpon>ExpenseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reorts\PurchaseReport.resx">
+      <DependentUpon>PurchaseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reorts\SalesReport.resx">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\DatabaseSetup.resx">
+      <DependentUpon>DatabaseSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Stock_Add.resx">
+      <DependentUpon>Stock_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login_form.resx">
+      <DependentUpon>login_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reorts\ReportsList.resx">
+      <DependentUpon>ReportsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\Billviwer.resx">
+      <DependentUpon>Billviwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\paidviwer.resx">
+      <DependentUpon>paidviwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\paidvendor.resx">
+      <DependentUpon>paidvendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\Purchase_items.resx">
+      <DependentUpon>Purchase_items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\Vendors_Add.resx">
+      <DependentUpon>Vendors_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\Vendors_edit.resx">
+      <DependentUpon>Vendors_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\Vendors_list.resx">
+      <DependentUpon>Vendors_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendors\Vendor_Details.resx">
+      <DependentUpon>Vendor_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="extra\App.config" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user_whiteongrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user_whiteongrey1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104020-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="extra\schema.sql" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.sql" />
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\retailbackgroud.jpg" />
+    <None Include="Resources\user-white.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\setting-white.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\search_white.png" />
+    <None Include="Resources\notification-white.png" />
+    <None Include="Resources\notification.png" />
+    <None Include="Resources\menu-white.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\logout-white.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\login-white.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\list-white.png" />
+    <None Include="Resources\list.png" />
+    <None Include="Resources\close-white.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\add-white.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\Image1.png" />
+    <None Include="Resources\phots.png" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\employee grey.png" />
+    <None Include="Resources\items greyy.png" />
+    <None Include="Resources\setting greyy.png" />
+    <None Include="Resources\photo_2018-10-05_20-28-55.jpg" />
+    <None Include="Resources\Webp.net-resizeimage %281%29.png" />
+    <None Include="Resources\Webp.net-resizeimage.png" />
+    <None Include="Resources\item_logo.png" />
+    <None Include="Resources\blue logo.png" />
+    <None Include="Resources\aba ta nabanaaune.png" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\logo.jpg" />
+    <None Include="Resources\user grey.png" />
+    <None Include="Resources\user blue.png" />
+    <None Include="Resources\upward grey.png" />
+    <None Include="Resources\upward blue.png" />
+    <None Include="Resources\sign in .png" />
+    <None Include="Resources\sign gray.png" />
+    <None Include="Resources\setting gray.png" />
+    <None Include="Resources\setting blue.png" />
+    <None Include="Resources\search grey.png" />
+    <None Include="Resources\search blue.png" />
+    <None Include="Resources\password grey.png" />
+    <None Include="Resources\password blue.png" />
+    <None Include="Resources\notification grey.png" />
+    <None Include="Resources\notification blue.png" />
+    <None Include="Resources\mail grey.png" />
+    <None Include="Resources\mail blue.png" />
+    <None Include="Resources\log out.png" />
+    <None Include="Resources\log out grey.png" />
+    <None Include="Resources\invoice grey.png" />
+    <None Include="Resources\invoice bue.png" />
+    <None Include="Resources\forward grey.png" />
+    <None Include="Resources\forward bue.png" />
+    <None Include="Resources\downward grey.png" />
+    <None Include="Resources\down blue.png" />
+    <None Include="Resources\delete grey.png" />
+    <None Include="Resources\delete blue.png" />
+    <None Include="Resources\backwardblue.png" />
+    <None Include="Resources\backward grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RetailControls\RetailControls.csproj">
+      <Project>{CE3A0A9A-8C75-459C-8EDF-B7EEDF92C052}</Project>
+      <Name>RetailControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

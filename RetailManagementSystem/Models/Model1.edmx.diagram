@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a708a1109cc4365a7ce5895084ceb96" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="HamroSuperMarketModel.admin" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.advance" Width="1.5" PointX="16" PointY="6.25" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.billitem" Width="1.5" PointX="8.25" PointY="10.375" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.bill" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.category" Width="1.5" PointX="3.75" PointY="21.875" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.customerpaid" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.customer" Width="1.5" PointX="0.75" PointY="19.125" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.employee" Width="1.5" PointX="13.75" PointY="3.5" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.expencecategory" Width="1.5" PointX="5.75" PointY="1.625" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.expence" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.ficialyear" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.item" Width="1.5" PointX="6" PointY="20.625" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.payment" Width="1.5" PointX="0.75" PointY="15" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.salary" Width="1.5" PointX="16" PointY="1.25" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.salesreturnitem" Width="1.5" PointX="8.25" PointY="20.5" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.salesreturn" Width="1.5" PointX="10.5" PointY="20.75" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.supplieradvance" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.supplierpaid" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.supply" Width="1.5" PointX="6" PointY="9.25" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.supplyitem" Width="1.5" PointX="11.25" PointY="10" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.variance" Width="1.5" PointX="8.25" PointY="25.5" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.vendor" Width="1.5" PointX="0.75" PointY="2.125" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__advances__employ__2E1BDC42" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__billitems__bill___1FCDBCEB" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__billitems__item___1ED998B2" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__bills__customer___1BFD2C07" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__bills__ficialyea__52593CB8" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__bills__payment_i__4D94879B" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__items__category___1273C1CD" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__customerp__custo__05D8E0BE" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__customerp__ficia__5441852A" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__customerp__payme__47DBAE45" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__salesretu__custo__4E88ABD4" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__salaries__employ__2B3F6F97" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__expences__expenc__32E0915F" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplierp__ficia__4F7CD00D" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplierp__ficia__534D60F1" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplies__ficial__5165187F" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplyite__ficia__5070F446" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplyite__payme__4E88ABD4" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__salesretu__item___4D94879B" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplyite__item___267ABA7A" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__variances__item___15502E78" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplierp__payme__48CFD27E" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__salesretu__sales__5165187F" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__suppliera__vendo__2BFE89A6" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplierp__suppl__02FC7413" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplies__vendor__22AA2996" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__supplyite__suppl__25869641" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

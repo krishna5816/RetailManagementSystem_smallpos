@@ -246,7 +246,12 @@ namespace RetailManagementSystem.Bills_form
         {
             if (betterlistview1.Items.Count == 0)
             {
-                notificationMAnager1.show("please select your items and enter quantity", 2000);
+                notificationMAnager1.show("please select your items and enter quantity.", 2000);
+                return;
+            }
+            if (due_txt.decVal > paid_txt.decVal)
+            {
+                notificationMAnager1.show("Please select customer for dueable amount.", 3000);
                 return;
             }
             bill savebill = new bill()
@@ -307,9 +312,14 @@ namespace RetailManagementSystem.Bills_form
 
         private void materialButton_SavenPrint_Click(object sender, EventArgs e)
         {
+            if (due_txt.decVal > paid_txt.decVal)
+            {
+                notificationMAnager1.show("Please select customer for dueable amount.", 3000);
+                return;
+            }
             if (betterlistview1.Items.Count==0)
             {
-                notificationMAnager1.show("please select your items and enter quantity", 2000);
+                notificationMAnager1.show("please select your items and enter quantity.", 2000);
                 return;
             }
             bill savebill = new bill()

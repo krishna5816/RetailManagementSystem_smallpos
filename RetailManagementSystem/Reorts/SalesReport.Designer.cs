@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            RetailControls.NepDate nepDate4 = new RetailControls.NepDate();
-            RetailControls.NepDate nepDate5 = new RetailControls.NepDate();
-            RetailControls.NepDate nepDate6 = new RetailControls.NepDate();
+            RetailControls.NepDate nepDate1 = new RetailControls.NepDate();
+            RetailControls.NepDate nepDate2 = new RetailControls.NepDate();
+            RetailControls.NepDate nepDate3 = new RetailControls.NepDate();
             this.label_totalamount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -39,6 +39,7 @@
             this.button_Reset = new System.Windows.Forms.Button();
             this.button_load = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox_mr0 = new System.Windows.Forms.CheckBox();
             this.nepaliCalender_sales_end = new RetailControls.NepaliCalender();
             this.nepaliCalender2 = new RetailControls.NepaliCalender();
             this.nepaliCalender_sales_start = new RetailControls.NepaliCalender();
@@ -52,6 +53,7 @@
             this.comboBox_sales = new System.Windows.Forms.ComboBox();
             this.label_totalmargin = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.radioButton_daily = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +115,7 @@
             this.button_export.TabIndex = 3;
             this.button_export.Text = "Export";
             this.button_export.UseVisualStyleBackColor = true;
+            this.button_export.Click += new System.EventHandler(this.button_export_Click);
             // 
             // button_Reset
             // 
@@ -142,6 +145,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.radioButton_daily);
+            this.panel2.Controls.Add(this.checkBox_mr0);
             this.panel2.Controls.Add(this.nepaliCalender_sales_end);
             this.panel2.Controls.Add(this.nepaliCalender2);
             this.panel2.Controls.Add(this.nepaliCalender_sales_start);
@@ -159,17 +164,30 @@
             this.panel2.TabIndex = 19;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // checkBox_mr0
+            // 
+            this.checkBox_mr0.AutoSize = true;
+            this.checkBox_mr0.Checked = true;
+            this.checkBox_mr0.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_mr0.Location = new System.Drawing.Point(338, 102);
+            this.checkBox_mr0.Name = "checkBox_mr0";
+            this.checkBox_mr0.Size = new System.Drawing.Size(106, 23);
+            this.checkBox_mr0.TabIndex = 15;
+            this.checkBox_mr0.Text = "Margin Load";
+            this.checkBox_mr0.UseVisualStyleBackColor = true;
+            this.checkBox_mr0.CheckedChanged += new System.EventHandler(this.checkBox_mr0_CheckedChanged);
+            // 
             // nepaliCalender_sales_end
             // 
-            nepDate4.Day = 5;
-            nepDate4.Month = 12;
-            nepDate4.MonthName = "Chaitra";
-            nepDate4.WeekDay = 4;
-            nepDate4.WeekDayName = "Wednesday";
-            nepDate4.Year = 2076;
-            this.nepaliCalender_sales_end.date = nepDate4;
-            this.nepaliCalender_sales_end.DATESTAMP = 20761205;
-            this.nepaliCalender_sales_end.engdate = new System.DateTime(2020, 3, 18, 0, 0, 0, 0);
+            nepDate1.Day = 2;
+            nepDate1.Month = 10;
+            nepDate1.MonthName = "Magh";
+            nepDate1.WeekDay = 6;
+            nepDate1.WeekDayName = "Friday";
+            nepDate1.Year = 2077;
+            this.nepaliCalender_sales_end.date = nepDate1;
+            this.nepaliCalender_sales_end.DATESTAMP = 20771002;
+            this.nepaliCalender_sales_end.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
             this.nepaliCalender_sales_end.Location = new System.Drawing.Point(43, 96);
             this.nepaliCalender_sales_end.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.nepaliCalender_sales_end.Name = "nepaliCalender_sales_end";
@@ -178,15 +196,15 @@
             // 
             // nepaliCalender2
             // 
-            nepDate5.Day = 5;
-            nepDate5.Month = 12;
-            nepDate5.MonthName = "Chaitra";
-            nepDate5.WeekDay = 4;
-            nepDate5.WeekDayName = "Wednesday";
-            nepDate5.Year = 2076;
-            this.nepaliCalender2.date = nepDate5;
-            this.nepaliCalender2.DATESTAMP = 20761205;
-            this.nepaliCalender2.engdate = new System.DateTime(2020, 3, 18, 0, 0, 0, 0);
+            nepDate2.Day = 2;
+            nepDate2.Month = 10;
+            nepDate2.MonthName = "Magh";
+            nepDate2.WeekDay = 6;
+            nepDate2.WeekDayName = "Friday";
+            nepDate2.Year = 2077;
+            this.nepaliCalender2.date = nepDate2;
+            this.nepaliCalender2.DATESTAMP = 20771002;
+            this.nepaliCalender2.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
             this.nepaliCalender2.Location = new System.Drawing.Point(378, 381);
             this.nepaliCalender2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.nepaliCalender2.Name = "nepaliCalender2";
@@ -195,15 +213,15 @@
             // 
             // nepaliCalender_sales_start
             // 
-            nepDate6.Day = 5;
-            nepDate6.Month = 12;
-            nepDate6.MonthName = "Chaitra";
-            nepDate6.WeekDay = 4;
-            nepDate6.WeekDayName = "Wednesday";
-            nepDate6.Year = 2076;
-            this.nepaliCalender_sales_start.date = nepDate6;
-            this.nepaliCalender_sales_start.DATESTAMP = 20761205;
-            this.nepaliCalender_sales_start.engdate = new System.DateTime(2020, 3, 18, 0, 0, 0, 0);
+            nepDate3.Day = 2;
+            nepDate3.Month = 10;
+            nepDate3.MonthName = "Magh";
+            nepDate3.WeekDay = 6;
+            nepDate3.WeekDayName = "Friday";
+            nepDate3.Year = 2077;
+            this.nepaliCalender_sales_start.date = nepDate3;
+            this.nepaliCalender_sales_start.DATESTAMP = 20771002;
+            this.nepaliCalender_sales_start.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
             this.nepaliCalender_sales_start.Location = new System.Drawing.Point(43, 67);
             this.nepaliCalender_sales_start.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.nepaliCalender_sales_start.Name = "nepaliCalender_sales_start";
@@ -327,6 +345,16 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Total Margin:";
             // 
+            // radioButton_daily
+            // 
+            this.radioButton_daily.AutoSize = true;
+            this.radioButton_daily.Location = new System.Drawing.Point(293, 6);
+            this.radioButton_daily.Name = "radioButton_daily";
+            this.radioButton_daily.Size = new System.Drawing.Size(57, 23);
+            this.radioButton_daily.TabIndex = 16;
+            this.radioButton_daily.Text = "Daily";
+            this.radioButton_daily.UseVisualStyleBackColor = true;
+            // 
             // SalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -374,5 +402,7 @@
         private System.Windows.Forms.ComboBox comboBox_sales;
         private System.Windows.Forms.Label label_totalmargin;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBox_mr0;
+        private System.Windows.Forms.RadioButton radioButton_daily;
     }
 }

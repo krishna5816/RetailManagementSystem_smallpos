@@ -4,16 +4,18 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using EPPlusTest;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RetailControls;
+using OfficeOpenXml;
 using RetailManagementSystem.Models;
 namespace RetailManagementSystem.REPORTS
 {
     public partial class SalesReport : UserControl
     {
-
+       
         HamroSuperMarketEntities db;
         string[] categoryHeader =
         {
@@ -26,14 +28,15 @@ namespace RetailManagementSystem.REPORTS
 
         string[] billHeader =
         {
-            "SN","Billno","Total","Margin"
+            "SN","Date","Billno","Total","Margin"
         };
         internal class categoryViwer
         {
+           
+           
             public string Cat_Name { get; set; }
             public decimal total { get; set; }
             public decimal amount { get; set; }
-
             public decimal margin { get; set; }
         }
         internal class ItemViwer
@@ -109,6 +112,7 @@ namespace RetailManagementSystem.REPORTS
                     listView1.Items.Add(
                         new ListViewItem(new string[]{
                             (listView1.Items.Count+1).ToString(),
+                           RetailControls.Helpers.DateStampToString(bill.day.Value),
                             bill.id.ToString(),
                             bill.total.ToString(),
                            margin.ToString("0.##")
@@ -126,11 +130,12 @@ namespace RetailManagementSystem.REPORTS
                     listView1.Items.Add(
                         new ListViewItem(new string[]{
                             (listView1.Items.Count+1).ToString(),
+                         
                             b.Cat_Name,
                             b.total.ToString(),
                             b.amount.ToString(),
                             b.margin.ToString()
-                        })); ;
+                        }));
                     total += b.amount;
                     totalmargin += b.margin;
                 }
@@ -146,6 +151,7 @@ namespace RetailManagementSystem.REPORTS
                     listView1.Items.Add(
                         new ListViewItem(new string[]{
                             (listView1.Items.Count+1).ToString(),
+                           
                             b.Item_Name,
                             b.total.ToString(),
                             averagerate.ToString(),
@@ -156,9 +162,36 @@ namespace RetailManagementSystem.REPORTS
                     totalmargin += b.margin;
                 }
             }
-            label_totalamount.Text = total.ToString();
+            else if (radioButton_daily.Checked)
+            {
+                getBillByDate();
+            }
+                label_totalamount.Text = total.ToString();
             label_totalmargin.Text = totalmargin.ToString();
 
+        }
+
+        private void getBillByDate()
+        {
+            var dailybills = GetBills().GroupBy(o => o.day).Select(o => new
+            {
+                date = o.Key,
+                totalsale = o.Where(p => p.day == o.Key).Sum(p => p.total)
+            }).ToList();
+
+            listView1.Columns.AddRange(Helpers.arrayToHeaders(new string[] {"SN","Date","Total" }));
+            foreach (var bill in dailybills)
+            {
+                
+                listView1.Items.Add(
+                    new ListViewItem(new string[]{
+                            (listView1.Items.Count+1).ToString(),
+                           bill.date.Value.ToNepaliDate(),
+                           bill.totalsale.Value.ToString("0.##")
+                    
+                    }));
+                
+            }
         }
 
         private IQueryable<bill> GetBills()
@@ -228,6 +261,7 @@ namespace RetailManagementSystem.REPORTS
                     if (deal.Count(o => o.Key == bitems.item.category_id.Value) > 0)
                     {
                         var d = deal.First(o => o.Key == bitems.item.category_id.Value);
+
                         d.Value.total += bitems.quantity.Value;
                         d.Value.margin += bitems.margin.Value;
                         d.Value.amount += (bitems.quantity.Value * bitems.rate.Value);
@@ -236,6 +270,7 @@ namespace RetailManagementSystem.REPORTS
                     {
                         deal.Add(bitems.item.category_id.Value, new categoryViwer()
                         {
+                            
                             Cat_Name = bitems.item.category.name,
                             amount = (bitems.quantity.Value * bitems.rate.Value),
                             total = bitems.quantity.Value,
@@ -283,6 +318,7 @@ namespace RetailManagementSystem.REPORTS
                     {
                         deal.Add(bitems.item_id.Value, new ItemViwer()
                         {
+                           
                             Item_Name = bitems.item.name,
                             amount = (bitems.quantity.Value * bitems.rate.Value),
                             total = bitems.quantity.Value,
@@ -298,6 +334,26 @@ namespace RetailManagementSystem.REPORTS
         private void radioButton_sales_billWise_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_export_Click(object sender, EventArgs e)
+        {
+            if (checkBox_mr0.Checked == true)
+            {
+
+            }
+            var s = new SaveFileDialog();
+            s.Filter = "*.xls|*.xls";
+            if (s.ShowDialog() == DialogResult.OK)
+            {
+
+                listView1.ToExcel("salesreports",s.FileName );
+            }
+        }
+
+        private void checkBox_mr0_CheckedChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

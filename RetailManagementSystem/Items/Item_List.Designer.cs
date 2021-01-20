@@ -61,8 +61,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(166)))));
             this.panel1.Controls.Add(this.label_totalcost);
             this.panel1.Controls.Add(this.label7);
@@ -76,10 +74,11 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.close_btn);
             this.panel1.Controls.Add(this.add_btn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1058, 100);
+            this.panel1.Size = new System.Drawing.Size(1056, 100);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -88,7 +87,7 @@
             this.label_totalcost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_totalcost.AutoSize = true;
             this.label_totalcost.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_totalcost.Location = new System.Drawing.Point(904, 75);
+            this.label_totalcost.Location = new System.Drawing.Point(902, 75);
             this.label_totalcost.Name = "label_totalcost";
             this.label_totalcost.Size = new System.Drawing.Size(88, 17);
             this.label_totalcost.TabIndex = 22;
@@ -99,7 +98,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(904, 51);
+            this.label7.Location = new System.Drawing.Point(902, 51);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 17);
             this.label7.TabIndex = 21;
@@ -110,7 +109,7 @@
             this.label_totalwholesale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_totalwholesale.AutoSize = true;
             this.label_totalwholesale.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_totalwholesale.Location = new System.Drawing.Point(707, 76);
+            this.label_totalwholesale.Location = new System.Drawing.Point(705, 76);
             this.label_totalwholesale.Name = "label_totalwholesale";
             this.label_totalwholesale.Size = new System.Drawing.Size(88, 17);
             this.label_totalwholesale.TabIndex = 20;
@@ -121,7 +120,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(547, 51);
+            this.label4.Location = new System.Drawing.Point(545, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 17);
             this.label4.TabIndex = 19;
@@ -132,7 +131,7 @@
             this.label_totalmrp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_totalmrp.AutoSize = true;
             this.label_totalmrp.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_totalmrp.Location = new System.Drawing.Point(547, 76);
+            this.label_totalmrp.Location = new System.Drawing.Point(545, 76);
             this.label_totalmrp.Name = "label_totalmrp";
             this.label_totalmrp.Size = new System.Drawing.Size(88, 17);
             this.label_totalmrp.TabIndex = 18;
@@ -143,7 +142,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(707, 51);
+            this.label1.Location = new System.Drawing.Point(705, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 17);
             this.label1.TabIndex = 17;
@@ -156,7 +155,7 @@
             this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchbox.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchbox.ForeColor = System.Drawing.Color.Gray;
-            this.searchbox.Location = new System.Drawing.Point(713, 18);
+            this.searchbox.Location = new System.Drawing.Point(711, 18);
             this.searchbox.Name = "searchbox";
             this.searchbox.Size = new System.Drawing.Size(298, 22);
             this.searchbox.TabIndex = 0;
@@ -185,7 +184,7 @@
             this.comboBox_categories.FormattingEnabled = true;
             this.comboBox_categories.Items.AddRange(new object[] {
             "All"});
-            this.comboBox_categories.Location = new System.Drawing.Point(466, 16);
+            this.comboBox_categories.Location = new System.Drawing.Point(464, 16);
             this.comboBox_categories.Name = "comboBox_categories";
             this.comboBox_categories.Size = new System.Drawing.Size(241, 25);
             this.comboBox_categories.TabIndex = 15;
@@ -211,7 +210,7 @@
             this.close_btn.ForeColor = System.Drawing.Color.White;
             this.close_btn.HoverColor = System.Drawing.Color.Empty;
             this.close_btn.HoverTextColor = System.Drawing.Color.Empty;
-            this.close_btn.Location = new System.Drawing.Point(1014, 5);
+            this.close_btn.Location = new System.Drawing.Point(1012, 5);
             this.close_btn.Margin = new System.Windows.Forms.Padding(0);
             this.close_btn.Name = "close_btn";
             this.close_btn.Size = new System.Drawing.Size(38, 44);
@@ -239,9 +238,6 @@
             // 
             // betterListView1
             // 
-            this.betterListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.betterListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -251,13 +247,15 @@
             this.columnHeader6,
             this.columnHeader7});
             this.betterListView1.ContextMenuStrip = this.contextMenuStrip;
+            this.betterListView1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.betterListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.betterListView1.FullRowSelect = true;
             this.betterListView1.GridLines = true;
             this.betterListView1.HideSelection = false;
-            this.betterListView1.Location = new System.Drawing.Point(2, 100);
+            this.betterListView1.Location = new System.Drawing.Point(0, 100);
             this.betterListView1.MultiSelect = false;
             this.betterListView1.Name = "betterListView1";
-            this.betterListView1.Size = new System.Drawing.Size(1049, 440);
+            this.betterListView1.Size = new System.Drawing.Size(1056, 513);
             this.betterListView1.TabIndex = 1;
             this.betterListView1.UseCompatibleStateImageBehavior = false;
             this.betterListView1.View = System.Windows.Forms.View.Details;
@@ -305,14 +303,14 @@
             this.delToolStripMenuItem,
             this.detailToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip.Size = new System.Drawing.Size(143, 70);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -320,7 +318,7 @@
             // 
             this.delToolStripMenuItem.Name = "delToolStripMenuItem";
             this.delToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.delToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.delToolStripMenuItem.Text = "Del";
             this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
             // 
@@ -328,7 +326,7 @@
             // 
             this.detailToolStripMenuItem.Name = "detailToolStripMenuItem";
             this.detailToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.detailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detailToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.detailToolStripMenuItem.Text = "Detail";
             this.detailToolStripMenuItem.Click += new System.EventHandler(this.detailToolStripMenuItem_Click);
             // 

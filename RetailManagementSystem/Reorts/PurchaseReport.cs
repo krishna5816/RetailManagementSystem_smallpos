@@ -35,18 +35,21 @@ namespace RetailManagementSystem.REPORTS
         };
         internal class categoryViwer
         {
+            public string date { get; set; }
             public string Cat_Name { get; set; }
             public decimal total { get; set; }
             public decimal amount { get; set; }
         }
         internal class vendorViwer
         {
+           
             public string name { get; set; }
             public decimal total { get; set; }
             public decimal due { get; set; }
         }
         internal class ItemViwer
         {
+          
             public string Item_Name { get; set; }
             public decimal total { get; set; }
             public decimal avgrate { get; set; }
@@ -101,10 +104,10 @@ namespace RetailManagementSystem.REPORTS
             bills = q;
             if (comboBox_sales.SelectedIndex == 0)
             {
-                bills = q.Where(o => o.year == nepaliCalender_sales_start.DATESTAMP);
+                bills = q.Where(o => o.day == nepaliCalender_sales_start.DATESTAMP);
             }
             else if (comboBox_sales.SelectedIndex == 1)
-            { 
+            {
                 var week = nepaliCalender_sales_start.getWeek(comboBox_sales_week.SelectedIndex);
                 var weekstart = week[0];
                 var weekend = week[1];
@@ -113,9 +116,9 @@ namespace RetailManagementSystem.REPORTS
             else if (comboBox_sales.SelectedIndex == 2)
             {
                 var month = nepaliCalender_sales_start.getMonth();
-                var startmonth = month[0];
-                var endmonth = month[1];
-                bills = q.Where(o => o.day >= startmonth&& o.day <= endmonth);
+                var monthstart = month[0];
+                var monthend = month[1];
+                bills = q.Where(o => o.day >= monthstart && o.day <= monthend);
             }
             else if (comboBox_sales.SelectedIndex == 3)
             {
@@ -126,8 +129,11 @@ namespace RetailManagementSystem.REPORTS
             }
             else if (comboBox_sales.SelectedIndex == 4)
             {
-                bills = q.Where(o =>(o.day >= nepaliCalender_sales_start.DATESTAMP && o.day <= nepaliCalender_sales_end.DATESTAMP));
-        }
+                bills = q.Where(o =>
+
+                (o.day >= nepaliCalender_sales_start.DATESTAMP && o.day <= nepaliCalender_sales_end.DATESTAMP));
+            }
+
 
             return bills;
         }
@@ -167,6 +173,7 @@ namespace RetailManagementSystem.REPORTS
                     {
                         deal.Add(bitems.item.category_id.Value, new categoryViwer()
                         {
+                           
                             Cat_Name = bitems.item.category.name,
                             amount = (bitems.quantity.Value * bitems.rate.Value),
                             total = bitems.quantity.Value
@@ -210,7 +217,8 @@ namespace RetailManagementSystem.REPORTS
 
                         deal.Add(item.vendor_id.Value, new vendorViwer()
                         {
-                            name=item.vendor.name,
+                           
+                            name =item.vendor.name,
                             total=item.total.Value,
                             due=item.due.Value
                         });
@@ -255,6 +263,7 @@ namespace RetailManagementSystem.REPORTS
                     {
                         deal.Add(bitems.item_id.Value, new ItemViwer()
                         {
+                           
                             Item_Name = bitems.item.name,
                             amount = (bitems.quantity.Value * bitems.rate.Value),
                             total = bitems.quantity.Value
@@ -292,7 +301,7 @@ namespace RetailManagementSystem.REPORTS
                 {
                     var averagerate = item.Value.amount / item.Value.total;
                     listView1.Items.Add(new ListViewItem(new string[] {
-                        ((listView1.Items.Count)+1).ToString() ,
+                        ((listView1.Items.Count)+1).ToString() ,                      
                         item.Value.Item_Name,
                         item.Value.total.ToString(),
                         averagerate.ToString(),
@@ -336,6 +345,42 @@ namespace RetailManagementSystem.REPORTS
                     }));
                 }
 
+            }
+            else if (radioButton_daily.Checked)
+            {
+                getBillByDate();
+            }
+        }
+        private void getBillByDate()
+        {
+            var dailybills = GetSupplies().GroupBy(o => o.day).Select(o => new
+            {
+                date = o.Key,
+                totalsale = o.Where(p => p.day == o.Key).Sum(p => p.total)
+            }).ToList();
+
+            listView1.Columns.AddRange(Helpers.arrayToHeaders(new string[] { "SN", "Date", "Total" }));
+            foreach (var bill in dailybills)
+            {
+
+                listView1.Items.Add(
+                    new ListViewItem(new string[]{
+                            (listView1.Items.Count+1).ToString(),
+                           bill.date.Value.ToNepaliDate(),
+                           bill.totalsale.Value.ToString("0.##")
+
+                    }));
+
+            }
+        }
+        private void button_export_Click(object sender, EventArgs e)
+        {
+            var s = new SaveFileDialog();
+            s.Filter = "*.xls|*.xls";
+            if (s.ShowDialog() == DialogResult.OK)
+            {
+
+                listView1.ToExcel("salesreports", s.FileName);
             }
         }
     }

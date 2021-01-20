@@ -145,11 +145,11 @@ namespace RetailManagementSystem.Bills_form
             var left = 0;
             var g = e.Graphics;
             var w = e.PageBounds.Width - 100;
-            top += printInBox(left, top, 260, g, "Parichaya Kirana Store", p.f_12_bold, StringAlignment.Center, false);// 
+            top += printInBox(left, top, 260, g, "www.meroemart.com", p.f_12_bold, StringAlignment.Center, false);// 
             top += 5;
-            top += printInBox(left, top, 260, g, "Dharan-11,Chomolung Path", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Dharan-11", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
-            top += printInBox(left, top, 260, g, "PAN: 605206010", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Vat: 611020026", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
             top += printInBox(left, top, 260, g, "Phone:9829380930", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
@@ -313,7 +313,8 @@ namespace RetailManagementSystem.Bills_form
                        ) + 2;
 
 
-            top += printInBox(left, top, 260, g, "Goods once sold cannot be Returned thank you", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Goods once sold cannot be returned.", p.f_7, StringAlignment.Center, false);
+            top += printInBox(left, top, 260, g, "Thank you", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
 
         }

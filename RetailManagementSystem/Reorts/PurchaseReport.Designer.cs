@@ -51,20 +51,22 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButton_vendorwise = new System.Windows.Forms.RadioButton();
+            this.radioButton_daily = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // nepaliCalender_sales_end
             // 
-            nepDate1.Day = 20;
-            nepDate1.Month = 1;
-            nepDate1.MonthName = "Baishak";
+            nepDate1.Day = 2;
+            nepDate1.Month = 10;
+            nepDate1.MonthName = "Magh";
             nepDate1.WeekDay = 6;
             nepDate1.WeekDayName = "Friday";
-            nepDate1.Year = 2076;
+            nepDate1.Year = 2077;
             this.nepaliCalender_sales_end.date = nepDate1;
-            this.nepaliCalender_sales_end.engdate = new System.DateTime(2019, 5, 3, 0, 0, 0, 0);
+            this.nepaliCalender_sales_end.DATESTAMP = 20771002;
+            this.nepaliCalender_sales_end.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
             this.nepaliCalender_sales_end.Location = new System.Drawing.Point(40, 96);
             this.nepaliCalender_sales_end.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.nepaliCalender_sales_end.Name = "nepaliCalender_sales_end";
@@ -73,14 +75,15 @@
             // 
             // nepaliCalender2
             // 
-            nepDate2.Day = 20;
-            nepDate2.Month = 1;
-            nepDate2.MonthName = "Baishak";
+            nepDate2.Day = 2;
+            nepDate2.Month = 10;
+            nepDate2.MonthName = "Magh";
             nepDate2.WeekDay = 6;
             nepDate2.WeekDayName = "Friday";
-            nepDate2.Year = 2076;
+            nepDate2.Year = 2077;
             this.nepaliCalender2.date = nepDate2;
-            this.nepaliCalender2.engdate = new System.DateTime(2019, 5, 3, 0, 0, 0, 0);
+            this.nepaliCalender2.DATESTAMP = 20771002;
+            this.nepaliCalender2.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
             this.nepaliCalender2.Location = new System.Drawing.Point(378, 381);
             this.nepaliCalender2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.nepaliCalender2.Name = "nepaliCalender2";
@@ -89,14 +92,15 @@
             // 
             // nepaliCalender_sales_start
             // 
-            nepDate3.Day = 20;
-            nepDate3.Month = 1;
-            nepDate3.MonthName = "Baishak";
+            nepDate3.Day = 2;
+            nepDate3.Month = 10;
+            nepDate3.MonthName = "Magh";
             nepDate3.WeekDay = 6;
             nepDate3.WeekDayName = "Friday";
-            nepDate3.Year = 2076;
+            nepDate3.Year = 2077;
             this.nepaliCalender_sales_start.date = nepDate3;
-            this.nepaliCalender_sales_start.engdate = new System.DateTime(2019, 5, 3, 0, 0, 0, 0);
+            this.nepaliCalender_sales_start.DATESTAMP = 20771002;
+            this.nepaliCalender_sales_start.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
             this.nepaliCalender_sales_start.Location = new System.Drawing.Point(40, 67);
             this.nepaliCalender_sales_start.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.nepaliCalender_sales_start.Name = "nepaliCalender_sales_start";
@@ -116,7 +120,7 @@
             // checkBox_types
             // 
             this.checkBox_types.AutoSize = true;
-            this.checkBox_types.Location = new System.Drawing.Point(450, 8);
+            this.checkBox_types.Location = new System.Drawing.Point(478, 8);
             this.checkBox_types.Name = "checkBox_types";
             this.checkBox_types.Size = new System.Drawing.Size(111, 23);
             this.checkBox_types.TabIndex = 10;
@@ -150,7 +154,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 19);
+            this.label1.Size = new System.Drawing.Size(82, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Report Type";
             // 
@@ -161,10 +165,10 @@
             this.listBox_categories.Enabled = false;
             this.listBox_categories.FormattingEnabled = true;
             this.listBox_categories.ItemHeight = 17;
-            this.listBox_categories.Location = new System.Drawing.Point(450, 39);
+            this.listBox_categories.Location = new System.Drawing.Point(478, 39);
             this.listBox_categories.Name = "listBox_categories";
             this.listBox_categories.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox_categories.Size = new System.Drawing.Size(219, 89);
+            this.listBox_categories.Size = new System.Drawing.Size(193, 89);
             this.listBox_categories.TabIndex = 6;
             // 
             // comboBox_sales_week
@@ -209,6 +213,7 @@
             this.button_export.TabIndex = 3;
             this.button_export.Text = "Export";
             this.button_export.UseVisualStyleBackColor = true;
+            this.button_export.Click += new System.EventHandler(this.button_export_Click);
             // 
             // button_Reset
             // 
@@ -249,7 +254,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 495);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 19);
+            this.label2.Size = new System.Drawing.Size(95, 19);
             this.label2.TabIndex = 27;
             this.label2.Text = "Total Amount:";
             // 
@@ -260,6 +265,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(5, 151);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(892, 335);
@@ -284,6 +290,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.radioButton_daily);
             this.panel2.Controls.Add(this.radioButton_vendorwise);
             this.panel2.Controls.Add(this.nepaliCalender_sales_end);
             this.panel2.Controls.Add(this.nepaliCalender2);
@@ -310,6 +317,16 @@
             this.radioButton_vendorwise.TabIndex = 15;
             this.radioButton_vendorwise.Text = "PartyWise";
             this.radioButton_vendorwise.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_daily
+            // 
+            this.radioButton_daily.AutoSize = true;
+            this.radioButton_daily.Location = new System.Drawing.Point(383, 7);
+            this.radioButton_daily.Name = "radioButton_daily";
+            this.radioButton_daily.Size = new System.Drawing.Size(57, 23);
+            this.radioButton_daily.TabIndex = 17;
+            this.radioButton_daily.Text = "Daily";
+            this.radioButton_daily.UseVisualStyleBackColor = true;
             // 
             // PurchaseReport
             // 
@@ -355,5 +372,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton radioButton_vendorwise;
+        private System.Windows.Forms.RadioButton radioButton_daily;
     }
 }

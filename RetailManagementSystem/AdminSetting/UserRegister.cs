@@ -87,8 +87,7 @@ namespace RetailManagementSystem.AdminSetting
                 RetailManagementSystem.Properties.Settings.Default.key = key_txt.Text;
                 }
                 else
-                {
-                    
+                {                    
                     return;
                 }
                 RetailManagementSystem.Properties.Settings.Default.Name = name_txt.Text;

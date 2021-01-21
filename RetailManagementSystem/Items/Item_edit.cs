@@ -137,6 +137,11 @@ namespace RetailManagementSystem.ITEMS
         {
 
         }
+
+        private void price_fltb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

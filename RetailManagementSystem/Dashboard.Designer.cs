@@ -50,6 +50,7 @@
             this.ClockLabel = new System.Windows.Forms.Label();
             this.notificationMAnager1 = new RetailControls.NotificationMAnager(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
+            this.materialButton_salesreturn = new RetailControls.MaterialButton();
             Clocktimer = new System.Windows.Forms.Timer(this.components);
             this.menu_panel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,6 +69,7 @@
             this.menu_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.menu_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.menu_panel.Controls.Add(this.materialButton_salesreturn);
             this.menu_panel.Controls.Add(this.add_stock);
             this.menu_panel.Controls.Add(this.materialButton1);
             this.menu_panel.Controls.Add(this.reports);
@@ -299,16 +301,16 @@
             // nepaliCalender1
             // 
             this.nepaliCalender1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            nepDate1.Day = 13;
-            nepDate1.Month = 11;
-            nepDate1.MonthName = "Falgun";
-            nepDate1.WeekDay = 3;
-            nepDate1.WeekDayName = "Tuesday";
-            nepDate1.Year = 2076;
+            nepDate1.Day = 8;
+            nepDate1.Month = 10;
+            nepDate1.MonthName = "Magh";
+            nepDate1.WeekDay = 5;
+            nepDate1.WeekDayName = "Thursday";
+            nepDate1.Year = 2077;
             this.nepaliCalender1.date = nepDate1;
-            this.nepaliCalender1.DATESTAMP = 20761113;
+            this.nepaliCalender1.DATESTAMP = 20771008;
             this.nepaliCalender1.Enabled = false;
-            this.nepaliCalender1.engdate = new System.DateTime(2020, 2, 25, 0, 0, 0, 0);
+            this.nepaliCalender1.engdate = new System.DateTime(2021, 1, 21, 0, 0, 0, 0);
             this.nepaliCalender1.Location = new System.Drawing.Point(718, 16);
             this.nepaliCalender1.Margin = new System.Windows.Forms.Padding(4);
             this.nepaliCalender1.Name = "nepaliCalender1";
@@ -348,6 +350,26 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1008, 425);
             this.panel4.TabIndex = 5;
+            // 
+            // materialButton_salesreturn
+            // 
+            this.materialButton_salesreturn.BackColor = System.Drawing.Color.White;
+            this.materialButton_salesreturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialButton_salesreturn.FlatAppearance.BorderSize = 0;
+            this.materialButton_salesreturn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.materialButton_salesreturn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialButton_salesreturn.ForeColor = System.Drawing.Color.Black;
+            this.materialButton_salesreturn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.materialButton_salesreturn.HoverTextColor = System.Drawing.Color.Empty;
+            this.materialButton_salesreturn.Location = new System.Drawing.Point(0, 230);
+            this.materialButton_salesreturn.Margin = new System.Windows.Forms.Padding(0);
+            this.materialButton_salesreturn.Name = "materialButton_salesreturn";
+            this.materialButton_salesreturn.Size = new System.Drawing.Size(356, 30);
+            this.materialButton_salesreturn.TabIndex = 13;
+            this.materialButton_salesreturn.Text = "Sales Return";
+            this.materialButton_salesreturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.materialButton_salesreturn.UseVisualStyleBackColor = false;
+            this.materialButton_salesreturn.Click += new System.EventHandler(this.materialButton_salesreturn_Click);
             // 
             // Dashboard
             // 
@@ -393,6 +415,7 @@
         private RetailControls.MaterialButton materialButton2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private RetailControls.MaterialButton materialButton_salesreturn;
     }
 }
 

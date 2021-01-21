@@ -444,6 +444,7 @@
     <Compile Include="SalesReturns\Salesreturn.Designer.cs">
       <DependentUpon>Salesreturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesReturns\Viewer.cs" />
     <Compile Include="Settings\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>

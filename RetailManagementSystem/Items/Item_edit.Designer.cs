@@ -169,6 +169,7 @@
             0,
             0,
             0});
+            this.price_fltb.TextChanged += new System.EventHandler(this.price_fltb_TextChanged);
             // 
             // stock_fltb
             // 

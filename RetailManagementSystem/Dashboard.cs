@@ -182,6 +182,19 @@ namespace RetailManagementSystem
         {
             this.Close();
         }
+
+        private void materialButton_salesreturn_Click(object sender, EventArgs e)
+        {
+            SalesReturns.Salesreturn obj = new SalesReturns.Salesreturn();
+            obj.TopLevel = false;
+            obj.Location = new Point(0, 0);
+            obj.Dock = DockStyle.Fill;
+            panel4.Controls.Add(obj);
+            obj.Show();
+            obj.BringToFront();
+            obj.Show();
+            menu_panel.Hide();
+        }
     }
     
        

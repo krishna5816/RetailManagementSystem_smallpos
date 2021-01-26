@@ -18,6 +18,7 @@ namespace RetailManagementSystem.Models
         public bill()
         {
             this.billitems = new HashSet<billitem>();
+            this.creditnotes = new HashSet<creditnote>();
         }
     
         public int id { get; set; }
@@ -46,5 +47,7 @@ namespace RetailManagementSystem.Models
         public virtual customer customer { get; set; }
         public virtual ficialyear ficialyear { get; set; }
         public virtual ficialyear ficialyear1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<creditnote> creditnotes { get; set; }
     }
 }

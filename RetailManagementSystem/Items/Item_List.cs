@@ -14,22 +14,31 @@ namespace RetailManagementSystem.ITEMS
 {
     public partial class Item_List : Form
     {
+
+        List<Models.item> items;
         public Item_List()
         {
             InitializeComponent();
+
             using (var db = new HamroSuperMarketEntities())
             {
 
+                
+                List<ItemViwer> itemViwers=new List<ItemViwer>();
+                List<string> strs = new List<string>();
+
                 foreach (item n in db.items.ToList())
                 {
-                    ItemViwer itemviwer = new ItemViwer(n,betterListView1.Items.Count+1);
-                    betterListView1.Items.Add(itemviwer);
+                    itemViwers.Add( new ItemViwer(n,betterListView1.Items.Count+1));
+                    strs.Add(n.name);
 
                 }
-                foreach (var cats in db.categories.ToList())
-                {
-                    comboBox_categories.Items.Add(cats);
-                }
+                betterListView1.Items.AddRange(itemViwers.ToArray());
+                searchbox.AutoCompleteCustomSource.AddRange(strs.ToArray());
+                //foreach (var cats in db.categories.ToList())
+                //{
+                    comboBox_categories.Items.AddRange(db.categories.ToArray());
+                //}
                 foreach (ListViewItem lstItem in betterListView1.Items) // listView has ListViewItem objects
                 {
                     valorSum += ((Convert.ToDecimal(lstItem.SubItems[3].Text)) * (Convert.ToDecimal(lstItem.SubItems[5].Text)));
@@ -48,17 +57,7 @@ namespace RetailManagementSystem.ITEMS
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            betterListView1.Items.Clear();
-            using (var db = new HamroSuperMarketEntities())
-            {
-
-                foreach (item n in db.items.Where(o => o.name.Contains(searchbox.Text)).ToList())
-                {
-                    ItemViwer itemviwer = new ItemViwer(n,betterListView1.Items.Count+1);
-                    betterListView1.Items.Add(itemviwer);
-
-                }
-            }
+           
         }
 
 
@@ -262,6 +261,35 @@ namespace RetailManagementSystem.ITEMS
         private void detailToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void searchbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                betterListView1.Items.Clear();
+                using (var db = new HamroSuperMarketEntities())
+                {
+                    List<ItemViwer> itemViwers = new List<ItemViwer>();
+                    foreach (item n in db.items.Where(o => o.name.Contains(searchbox.Text)).ToList())
+                    {
+                        itemViwers.Add(new ItemViwer(n, betterListView1.Items.Count + 1));
+
+                    }
+                    betterListView1.Items.AddRange(itemViwers.ToArray());
+                    //foreach (item n in db.items.Where(o => o.name.Contains(searchbox.Text)).ToList())
+                    //{
+                    //    ItemViwer itemviwer = new ItemViwer(n,betterListView1.Items.Count+1);
+                    //    betterListView1.Items.Add(itemviwer);
+
+                    //}
+                }
+            }
         }
 
         private void betterListView1_SelectedIndexChanged(object sender, EventArgs e)

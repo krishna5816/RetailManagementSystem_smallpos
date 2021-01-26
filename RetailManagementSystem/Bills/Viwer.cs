@@ -91,7 +91,7 @@ namespace RetailManagementSystem.Bills_form
                 item_id = id,
                 bill_id = bill_id,
                 item_discount=savedis,
-                margin = unitmargin * qty,
+                margin =(decimal) unitmargin * qty,
                 created_at = DateTime.Now,
                 updated_at = DateTime.Now
             };

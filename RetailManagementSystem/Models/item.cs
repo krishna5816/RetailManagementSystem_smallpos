@@ -21,6 +21,7 @@ namespace RetailManagementSystem.Models
             this.salesreturnitems = new HashSet<salesreturnitem>();
             this.supplyitems = new HashSet<supplyitem>();
             this.variances = new HashSet<variance>();
+            this.creditnoteitems = new HashSet<creditnoteitem>();
         }
     
         public int id { get; set; }
@@ -49,5 +50,7 @@ namespace RetailManagementSystem.Models
         public virtual ICollection<supplyitem> supplyitems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<variance> variances { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<creditnoteitem> creditnoteitems { get; set; }
     }
 }

@@ -54,6 +54,13 @@
         <AssociationConnector Association="HamroSuperMarketModel.FK__supplierp__suppl__02FC7413" />
         <AssociationConnector Association="HamroSuperMarketModel.FK__supplies__vendor__22AA2996" />
         <AssociationConnector Association="HamroSuperMarketModel.FK__supplyite__suppl__25869641" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.creditnoteitem" Width="1.5" PointX="11" PointY="14.875" />
+        <EntityTypeShape EntityType="HamroSuperMarketModel.creditnote" Width="1.5" PointX="14" PointY="11.125" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__creditnot__admin__51300E55" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__creditnot__admin__5AB9788F" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__creditnot__bill___503BEA1C" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__creditnot__item___59C55456" />
+        <AssociationConnector Association="HamroSuperMarketModel.FK__creditnot__custo__607251E5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -24,7 +24,7 @@ namespace RetailManagementSystem.Models
         public Nullable<System.DateTime> updated_at { get; set; }
         public Nullable<System.DateTime> created_at { get; set; }
         public Nullable<decimal> quantity { get; set; }
-        public Nullable<decimal> margin { get; set; }
+        public decimal margin { get; set; }
         public decimal item_discount { get; set; }
     
         public virtual bill bill { get; set; }

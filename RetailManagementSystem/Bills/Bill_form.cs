@@ -26,16 +26,21 @@ namespace RetailManagementSystem.Bills_form
             InitializeComponent();
 
             RetailManagementSystem.Bills.Data.items = db.items.ToList();
-            foreach (item itm in db.items.ToList())
-            {
-                comboBox_item.Items.Add(new RetailManagementSystem.Bills.ItemNameViwer(itm));
-                if (itm.barcode.Trim() != "")
-                {
-                    comboBox_barcode.Items.Add(new RetailManagementSystem.Bills.BarcodeViwer(itm));
-                }
-                refresh();
+            var itms = db.items.ToList();
+            var item = itms.Select(o => new RetailManagementSystem.Bills.ItemNameViwer(o) { }).ToArray();
+            var barcode = itms.Where(o=>o.barcode.Trim()!=""). Select(o => new RetailManagementSystem.Bills.BarcodeViwer(o) { }).ToArray();
+            comboBox_item.Items.AddRange(item);
+            comboBox_barcode.Items.AddRange(barcode);
+            //foreach (item itm in db.items.ToList())
+            //{
+            //    comboBox_item.Items.Add(new RetailManagementSystem.Bills.ItemNameViwer(itm));
+            //    if (itm.barcode.Trim() != "")
+            //    {
+            //        comboBox_barcode.Items.Add(new RetailManagementSystem.Bills.BarcodeViwer(itm));
+            //    }
+            //    refresh();
 
-            }
+            //}
             comboBox_item.Focus();
         }
 
@@ -269,21 +274,29 @@ namespace RetailManagementSystem.Bills_form
                 updated_at = DateTime.Now
 
             };
-            if (checkBox1.Checked)
+            if (checkBox1.Checked == true)
             {
-                if (comboBox_customer.SelectedItem == null)
+                if (comboBox_customer.SelectedItem != null)
+                {
+                    var selcustomer = (customer)comboBox_customer.SelectedItem;
+                    savebill.customer_id = selcustomer.id;
+                    if (Convert.ToDecimal(due_txt.Text) > 0)
+                    {
+                        var cus = db.customers.Find(selcustomer.id);
+                        cus.due += Convert.ToDecimal(due_txt.Text);
+                        db.Entry(cus).State = System.Data.Entity.EntityState.Modified;
+                    }
+                }
+                else
                 {
                     notificationMAnager1.show("please select old customer or add a new customer ", 2000);
                     return;
                 }
-                var selcustomer = (customer)comboBox_customer.SelectedItem;
-                savebill.customer_id = selcustomer.id;
-                if (Convert.ToDecimal(due_txt.Text) > 0)
-                {
-                    var cus = db.customers.Find(selcustomer.id);
-                    cus.due += Convert.ToDecimal(due_txt.Text);
-                    db.Entry(cus).State = System.Data.Entity.EntityState.Modified;
-                }
+            }
+            else
+            {
+                notificationMAnager1.show("please select old customer or add a new customer ", 2000);
+                return;
             }
             db.bills.Add(savebill);
             db.SaveChanges();
@@ -312,10 +325,13 @@ namespace RetailManagementSystem.Bills_form
 
         private void materialButton_SavenPrint_Click(object sender, EventArgs e)
         {
-            if (due_txt.decVal > paid_txt.decVal)
+            if (due_txt.decVal!=0)
             {
+                if (checkBox1.Checked==false)
+                {
                 notificationMAnager1.show("Please select customer for dueable amount.", 3000);
                 return;
+                }
             }
             if (betterlistview1.Items.Count==0)
             {
@@ -336,13 +352,10 @@ namespace RetailManagementSystem.Bills_form
                 created_at = DateTime.Now,
                 updated_at = DateTime.Now
             };
-            if (checkBox1.Checked)
+            if (checkBox1.Checked==true)
             {
-                if (comboBox_customer.SelectedItem == null)
+               if (comboBox_customer.SelectedItem!=null)
                 {
-                    notificationMAnager1.show("please select old customer or add a new customer ", 2000);
-                    return;
-                }
                 var selcustomer = (customer)comboBox_customer.SelectedItem;
                 savebill.customer_id = selcustomer.id;
                 if (Convert.ToDecimal(due_txt.Text) > 0)
@@ -350,7 +363,18 @@ namespace RetailManagementSystem.Bills_form
                     var cus = db.customers.Find(selcustomer.id);
                     cus.due += Convert.ToDecimal(due_txt.Text);
                     db.Entry(cus).State = System.Data.Entity.EntityState.Modified;
+                }                  
                 }
+                else
+                {
+                    notificationMAnager1.show("please select old customer or add a new customer ", 2000);
+                    return;
+                }
+            }
+            else
+            {
+                notificationMAnager1.show("please select old customer or add a new customer ", 2000);
+                return;
             }
             db.bills.Add(savebill);
             db.SaveChanges();

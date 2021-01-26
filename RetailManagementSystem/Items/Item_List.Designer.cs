@@ -55,6 +55,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -151,6 +152,8 @@
             // searchbox
             // 
             this.searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.searchbox.BackColor = System.Drawing.Color.White;
             this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchbox.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,6 +163,7 @@
             this.searchbox.Size = new System.Drawing.Size(298, 22);
             this.searchbox.TabIndex = 0;
             this.searchbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.searchbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchbox_KeyDown);
             // 
             // addcate_btn
             // 
@@ -330,6 +334,10 @@
             this.detailToolStripMenuItem.Text = "Detail";
             this.detailToolStripMenuItem.Click += new System.EventHandler(this.detailToolStripMenuItem_Click);
             // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            // 
             // Item_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -381,5 +389,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_totalmrp;
         private System.Windows.Forms.Label label1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }

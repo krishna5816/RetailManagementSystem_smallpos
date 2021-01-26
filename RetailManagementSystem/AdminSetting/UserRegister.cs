@@ -94,7 +94,6 @@ namespace RetailManagementSystem.AdminSetting
                 RetailManagementSystem.Properties.Settings.Default.Address = addr_txt.Text;
                 RetailManagementSystem.Properties.Settings.Default.Phone = phn_txt.Text;
                 RetailManagementSystem.Properties.Settings.Default.Email = email_txt.Text;
-                
                 RetailManagementSystem.Properties.Settings.Default.Panno = panno_txt.Text;
                // RetailManagementSystem.Properties.Settings.Default.signature = signature;
                 RetailManagementSystem.Properties.Settings.Default.isuserregister = true;

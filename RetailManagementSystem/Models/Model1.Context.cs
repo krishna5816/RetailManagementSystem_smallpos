@@ -47,5 +47,7 @@ namespace RetailManagementSystem.Models
         public virtual DbSet<supplyitem> supplyitems { get; set; }
         public virtual DbSet<variance> variances { get; set; }
         public virtual DbSet<vendor> vendors { get; set; }
+        public virtual DbSet<creditnoteitem> creditnoteitems { get; set; }
+        public virtual DbSet<creditnote> creditnotes { get; set; }
     }
 }

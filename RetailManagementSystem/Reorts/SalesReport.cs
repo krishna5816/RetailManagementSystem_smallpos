@@ -108,7 +108,7 @@ namespace RetailManagementSystem.REPORTS
                 listView1.Columns.AddRange(Helpers.arrayToHeaders(billHeader));
                 foreach (var bill in bills.ToList())
                 {
-                    var margin = bill.billitems.Sum(o => o.margin).Value;
+                    var margin = bill.billitems.Sum(o => o.margin);
                     listView1.Items.Add(
                         new ListViewItem(new string[]{
                             (listView1.Items.Count+1).ToString(),
@@ -263,7 +263,7 @@ namespace RetailManagementSystem.REPORTS
                         var d = deal.First(o => o.Key == bitems.item.category_id.Value);
 
                         d.Value.total += bitems.quantity.Value;
-                        d.Value.margin += bitems.margin.Value;
+                        d.Value.margin += bitems.margin;
                         d.Value.amount += (bitems.quantity.Value * bitems.rate.Value);
                     }
                     else
@@ -274,7 +274,7 @@ namespace RetailManagementSystem.REPORTS
                             Cat_Name = bitems.item.category.name,
                             amount = (bitems.quantity.Value * bitems.rate.Value),
                             total = bitems.quantity.Value,
-                            margin=bitems.margin.Value
+                            margin=bitems.margin
                         });
                     }
                 }
@@ -311,7 +311,7 @@ namespace RetailManagementSystem.REPORTS
                     {
                         var d = deal.First(o => o.Key == bitems.item_id.Value);
                         d.Value.total += bitems.quantity.Value;
-                        d.Value.margin += bitems.margin.Value;
+                        d.Value.margin += bitems.margin;
                         d.Value.amount += (bitems.quantity.Value * bitems.rate.Value);
                     }
                     else
@@ -322,7 +322,7 @@ namespace RetailManagementSystem.REPORTS
                             Item_Name = bitems.item.name,
                             amount = (bitems.quantity.Value * bitems.rate.Value),
                             total = bitems.quantity.Value,
-                            margin=bitems.margin.Value
+                            margin=bitems.margin
                         });
                     }
                 }

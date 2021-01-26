@@ -30,6 +30,8 @@ namespace RetailManagementSystem.Models
         public virtual DbSet<billitem> billitems { get; set; }
         public virtual DbSet<bill> bills { get; set; }
         public virtual DbSet<category> categories { get; set; }
+        public virtual DbSet<creditnoteitem> creditnoteitems { get; set; }
+        public virtual DbSet<creditnote> creditnotes { get; set; }
         public virtual DbSet<customerpaid> customerpaids { get; set; }
         public virtual DbSet<customer> customers { get; set; }
         public virtual DbSet<employee> employees { get; set; }
@@ -39,15 +41,11 @@ namespace RetailManagementSystem.Models
         public virtual DbSet<item> items { get; set; }
         public virtual DbSet<payment> payments { get; set; }
         public virtual DbSet<salary> salaries { get; set; }
-        public virtual DbSet<salesreturnitem> salesreturnitems { get; set; }
-        public virtual DbSet<salesreturn> salesreturns { get; set; }
         public virtual DbSet<supplieradvance> supplieradvances { get; set; }
         public virtual DbSet<supplierpaid> supplierpaids { get; set; }
         public virtual DbSet<supply> supplies { get; set; }
         public virtual DbSet<supplyitem> supplyitems { get; set; }
         public virtual DbSet<variance> variances { get; set; }
         public virtual DbSet<vendor> vendors { get; set; }
-        public virtual DbSet<creditnoteitem> creditnoteitems { get; set; }
-        public virtual DbSet<creditnote> creditnotes { get; set; }
     }
 }

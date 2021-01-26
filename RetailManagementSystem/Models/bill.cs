@@ -41,6 +41,7 @@ namespace RetailManagementSystem.Models
         public Nullable<int> payment_id { get; set; }
         public Nullable<int> ficialyear_id { get; set; }
         public Nullable<decimal> returns { get; set; }
+        public Nullable<bool> checkreturnbills { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<billitem> billitems { get; set; }

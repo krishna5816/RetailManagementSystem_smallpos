@@ -18,9 +18,8 @@ namespace RetailManagementSystem.Models
         public customer()
         {
             this.bills = new HashSet<bill>();
-            this.customerpaids = new HashSet<customerpaid>();
-            this.salesreturnitems = new HashSet<salesreturnitem>();
             this.creditnotes = new HashSet<creditnote>();
+            this.customerpaids = new HashSet<customerpaid>();
         }
     
         public int id { get; set; }
@@ -38,10 +37,8 @@ namespace RetailManagementSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bill> bills { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<customerpaid> customerpaids { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<salesreturnitem> salesreturnitems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<creditnote> creditnotes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<customerpaid> customerpaids { get; set; }
     }
 }

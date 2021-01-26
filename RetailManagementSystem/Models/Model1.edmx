@@ -76,6 +76,7 @@
           <Property Name="payment_id" Type="int" />
           <Property Name="ficialyear_id" Type="int" />
           <Property Name="returns" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="checkreturnbills" Type="bit" />
         </EntityType>
         <EntityType Name="categories">
           <Key>
@@ -128,6 +129,7 @@
           <Property Name="updated_at" Type="datetime" Nullable="false" />
           <Property Name="sync_id" Type="int" />
           <Property Name="customer_id" Type="int" />
+          <Property Name="checkreturnbills" Type="bit" />
         </EntityType>
         <EntityType Name="customerpaids">
           <Key>
@@ -272,36 +274,6 @@
           <Property Name="today" Type="int" />
           <Property Name="tomonth" Type="int" />
           <Property Name="toyear" Type="int" />
-        </EntityType>
-        <EntityType Name="salesreturnitems">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="item_id" Type="int" />
-          <Property Name="customer_id" Type="int" />
-          <Property Name="date" Type="int" />
-          <Property Name="qty" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="dis" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="updated_at" Type="datetime" />
-          <Property Name="created_at" Type="datetime" />
-          <Property Name="sync_at" Type="datetime" />
-        </EntityType>
-        <EntityType Name="salesreturns">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="grosstotal" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="due" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="nettotal" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="returnss" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="salesreturnitem_id" Type="int" />
-          <Property Name="updated_at" Type="datetime" />
-          <Property Name="created_at" Type="datetime" />
-          <Property Name="sync_at" Type="datetime" />
         </EntityType>
         <EntityType Name="supplieradvances">
           <Key>
@@ -608,42 +580,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__salesretu__custo__4E88ABD4">
-          <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
-          <End Role="salesreturnitems" Type="Self.salesreturnitems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customers">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="salesreturnitems">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__salesretu__item___4D94879B">
-          <End Role="items" Type="Self.items" Multiplicity="0..1" />
-          <End Role="salesreturnitems" Type="Self.salesreturnitems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="items">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="salesreturnitems">
-              <PropertyRef Name="item_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__salesretu__sales__5165187F">
-          <End Role="salesreturnitems" Type="Self.salesreturnitems" Multiplicity="0..1" />
-          <End Role="salesreturns" Type="Self.salesreturns" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="salesreturnitems">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="salesreturns">
-              <PropertyRef Name="salesreturnitem_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__suppliera__vendo__2BFE89A6">
           <End Role="vendors" Type="Self.vendors" Multiplicity="0..1" />
           <End Role="supplieradvances" Type="Self.supplieradvances" Multiplicity="*" />
@@ -805,8 +741,6 @@
           <EntitySet Name="items" EntityType="Self.items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="payments" EntityType="Self.payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="salaries" EntityType="Self.salaries" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="salesreturnitems" EntityType="Self.salesreturnitems" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="salesreturns" EntityType="Self.salesreturns" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplieradvances" EntityType="Self.supplieradvances" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplierpaids" EntityType="Self.supplierpaids" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplies" EntityType="Self.supplies" Schema="dbo" store:Type="Tables" />
@@ -881,18 +815,6 @@
             <End Role="employees" EntitySet="employees" />
             <End Role="salaries" EntitySet="salaries" />
           </AssociationSet>
-          <AssociationSet Name="FK__salesretu__custo__4E88ABD4" Association="Self.FK__salesretu__custo__4E88ABD4">
-            <End Role="customers" EntitySet="customers" />
-            <End Role="salesreturnitems" EntitySet="salesreturnitems" />
-          </AssociationSet>
-          <AssociationSet Name="FK__salesretu__item___4D94879B" Association="Self.FK__salesretu__item___4D94879B">
-            <End Role="items" EntitySet="items" />
-            <End Role="salesreturnitems" EntitySet="salesreturnitems" />
-          </AssociationSet>
-          <AssociationSet Name="FK__salesretu__sales__5165187F" Association="Self.FK__salesretu__sales__5165187F">
-            <End Role="salesreturnitems" EntitySet="salesreturnitems" />
-            <End Role="salesreturns" EntitySet="salesreturns" />
-          </AssociationSet>
           <AssociationSet Name="FK__suppliera__vendo__2BFE89A6" Association="Self.FK__suppliera__vendo__2BFE89A6">
             <End Role="vendors" EntitySet="vendors" />
             <End Role="supplieradvances" EntitySet="supplieradvances" />
@@ -952,6 +874,8 @@
           <EntitySet Name="billitems" EntityType="HamroSuperMarketModel.billitem" />
           <EntitySet Name="bills" EntityType="HamroSuperMarketModel.bill" />
           <EntitySet Name="categories" EntityType="HamroSuperMarketModel.category" />
+          <EntitySet Name="creditnoteitems" EntityType="HamroSuperMarketModel.creditnoteitem" />
+          <EntitySet Name="creditnotes" EntityType="HamroSuperMarketModel.creditnote" />
           <EntitySet Name="customerpaids" EntityType="HamroSuperMarketModel.customerpaid" />
           <EntitySet Name="customers" EntityType="HamroSuperMarketModel.customer" />
           <EntitySet Name="employees" EntityType="HamroSuperMarketModel.employee" />
@@ -961,14 +885,20 @@
           <EntitySet Name="items" EntityType="HamroSuperMarketModel.item" />
           <EntitySet Name="payments" EntityType="HamroSuperMarketModel.payment" />
           <EntitySet Name="salaries" EntityType="HamroSuperMarketModel.salary" />
-          <EntitySet Name="salesreturnitems" EntityType="HamroSuperMarketModel.salesreturnitem" />
-          <EntitySet Name="salesreturns" EntityType="HamroSuperMarketModel.salesreturn" />
           <EntitySet Name="supplieradvances" EntityType="HamroSuperMarketModel.supplieradvance" />
           <EntitySet Name="supplierpaids" EntityType="HamroSuperMarketModel.supplierpaid" />
           <EntitySet Name="supplies" EntityType="HamroSuperMarketModel.supply" />
           <EntitySet Name="supplyitems" EntityType="HamroSuperMarketModel.supplyitem" />
           <EntitySet Name="variances" EntityType="HamroSuperMarketModel.variance" />
           <EntitySet Name="vendors" EntityType="HamroSuperMarketModel.vendor" />
+          <AssociationSet Name="FK__creditnot__admin__51300E55" Association="HamroSuperMarketModel.FK__creditnot__admin__51300E55">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="creditnote" EntitySet="creditnotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__creditnot__admin__5AB9788F" Association="HamroSuperMarketModel.FK__creditnot__admin__5AB9788F">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="creditnoteitem" EntitySet="creditnoteitems" />
+          </AssociationSet>
           <AssociationSet Name="FK__advances__employ__2E1BDC42" Association="HamroSuperMarketModel.FK__advances__employ__2E1BDC42">
             <End Role="employee" EntitySet="employees" />
             <End Role="advance" EntitySet="advances" />
@@ -993,9 +923,21 @@
             <End Role="ficialyear" EntitySet="ficialyears" />
             <End Role="bill" EntitySet="bills" />
           </AssociationSet>
+          <AssociationSet Name="FK__creditnot__bill___503BEA1C" Association="HamroSuperMarketModel.FK__creditnot__bill___503BEA1C">
+            <End Role="bill" EntitySet="bills" />
+            <End Role="creditnote" EntitySet="creditnotes" />
+          </AssociationSet>
           <AssociationSet Name="FK__items__category___1273C1CD" Association="HamroSuperMarketModel.FK__items__category___1273C1CD">
             <End Role="category" EntitySet="categories" />
             <End Role="item" EntitySet="items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__creditnot__item___59C55456" Association="HamroSuperMarketModel.FK__creditnot__item___59C55456">
+            <End Role="item" EntitySet="items" />
+            <End Role="creditnoteitem" EntitySet="creditnoteitems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__creditnot__custo__607251E5" Association="HamroSuperMarketModel.FK__creditnot__custo__607251E5">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="creditnote" EntitySet="creditnotes" />
           </AssociationSet>
           <AssociationSet Name="FK__customerp__custo__05D8E0BE" Association="HamroSuperMarketModel.FK__customerp__custo__05D8E0BE">
             <End Role="customer" EntitySet="customers" />
@@ -1008,10 +950,6 @@
           <AssociationSet Name="FK__customerp__payme__47DBAE45" Association="HamroSuperMarketModel.FK__customerp__payme__47DBAE45">
             <End Role="payment" EntitySet="payments" />
             <End Role="customerpaid" EntitySet="customerpaids" />
-          </AssociationSet>
-          <AssociationSet Name="FK__salesretu__custo__4E88ABD4" Association="HamroSuperMarketModel.FK__salesretu__custo__4E88ABD4">
-            <End Role="customer" EntitySet="customers" />
-            <End Role="salesreturnitem" EntitySet="salesreturnitems" />
           </AssociationSet>
           <AssociationSet Name="FK__salaries__employ__2B3F6F97" Association="HamroSuperMarketModel.FK__salaries__employ__2B3F6F97">
             <End Role="employee" EntitySet="employees" />
@@ -1041,10 +979,6 @@
             <End Role="ficialyear" EntitySet="ficialyears" />
             <End Role="supplyitem" EntitySet="supplyitems" />
           </AssociationSet>
-          <AssociationSet Name="FK__salesretu__item___4D94879B" Association="HamroSuperMarketModel.FK__salesretu__item___4D94879B">
-            <End Role="item" EntitySet="items" />
-            <End Role="salesreturnitem" EntitySet="salesreturnitems" />
-          </AssociationSet>
           <AssociationSet Name="FK__supplyite__item___267ABA7A" Association="HamroSuperMarketModel.FK__supplyite__item___267ABA7A">
             <End Role="item" EntitySet="items" />
             <End Role="supplyitem" EntitySet="supplyitems" />
@@ -1056,10 +990,6 @@
           <AssociationSet Name="FK__supplierp__payme__48CFD27E" Association="HamroSuperMarketModel.FK__supplierp__payme__48CFD27E">
             <End Role="payment" EntitySet="payments" />
             <End Role="supplierpaid" EntitySet="supplierpaids" />
-          </AssociationSet>
-          <AssociationSet Name="FK__salesretu__sales__5165187F" Association="HamroSuperMarketModel.FK__salesretu__sales__5165187F">
-            <End Role="salesreturnitem" EntitySet="salesreturnitems" />
-            <End Role="salesreturn" EntitySet="salesreturns" />
           </AssociationSet>
           <AssociationSet Name="FK__suppliera__vendo__2BFE89A6" Association="HamroSuperMarketModel.FK__suppliera__vendo__2BFE89A6">
             <End Role="vendor" EntitySet="vendors" />
@@ -1076,28 +1006,6 @@
           <AssociationSet Name="FK__supplyite__suppl__25869641" Association="HamroSuperMarketModel.FK__supplyite__suppl__25869641">
             <End Role="supply" EntitySet="supplies" />
             <End Role="supplyitem" EntitySet="supplyitems" />
-          </AssociationSet>
-          <EntitySet Name="creditnoteitems" EntityType="HamroSuperMarketModel.creditnoteitem" />
-          <EntitySet Name="creditnotes" EntityType="HamroSuperMarketModel.creditnote" />
-          <AssociationSet Name="FK__creditnot__admin__51300E55" Association="HamroSuperMarketModel.FK__creditnot__admin__51300E55">
-            <End Role="admin" EntitySet="admins" />
-            <End Role="creditnote" EntitySet="creditnotes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__creditnot__admin__5AB9788F" Association="HamroSuperMarketModel.FK__creditnot__admin__5AB9788F">
-            <End Role="admin" EntitySet="admins" />
-            <End Role="creditnoteitem" EntitySet="creditnoteitems" />
-          </AssociationSet>
-          <AssociationSet Name="FK__creditnot__bill___503BEA1C" Association="HamroSuperMarketModel.FK__creditnot__bill___503BEA1C">
-            <End Role="bill" EntitySet="bills" />
-            <End Role="creditnote" EntitySet="creditnotes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__creditnot__item___59C55456" Association="HamroSuperMarketModel.FK__creditnot__item___59C55456">
-            <End Role="item" EntitySet="items" />
-            <End Role="creditnoteitem" EntitySet="creditnoteitems" />
-          </AssociationSet>
-          <AssociationSet Name="FK__creditnot__custo__607251E5" Association="HamroSuperMarketModel.FK__creditnot__custo__607251E5">
-            <End Role="customer" EntitySet="customers" />
-            <End Role="creditnote" EntitySet="creditnotes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="admin">
@@ -1147,10 +1055,10 @@
           <Property Name="updated_at" Type="DateTime" Precision="3" />
           <Property Name="created_at" Type="DateTime" Precision="3" />
           <Property Name="quantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="margin" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="item_discount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <NavigationProperty Name="bill" Relationship="HamroSuperMarketModel.FK__billitems__bill___1FCDBCEB" FromRole="billitem" ToRole="bill" />
           <NavigationProperty Name="item" Relationship="HamroSuperMarketModel.FK__billitems__item___1ED998B2" FromRole="billitem" ToRole="item" />
-          <Property Name="margin" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="item_discount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="bill">
           <Key>
@@ -1175,12 +1083,13 @@
           <Property Name="bill_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="payment_id" Type="Int32" />
           <Property Name="ficialyear_id" Type="Int32" />
+          <Property Name="returns" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="billitems" Relationship="HamroSuperMarketModel.FK__billitems__bill___1FCDBCEB" FromRole="bill" ToRole="billitem" />
           <NavigationProperty Name="customer" Relationship="HamroSuperMarketModel.FK__bills__customer___1BFD2C07" FromRole="bill" ToRole="customer" />
           <NavigationProperty Name="ficialyear" Relationship="HamroSuperMarketModel.FK__bills__ficialyea__52593CB8" FromRole="bill" ToRole="ficialyear" />
           <NavigationProperty Name="ficialyear1" Relationship="HamroSuperMarketModel.FK__bills__payment_i__4D94879B" FromRole="bill" ToRole="ficialyear" />
-          <Property Name="returns" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="creditnotes" Relationship="HamroSuperMarketModel.FK__creditnot__bill___503BEA1C" FromRole="bill" ToRole="creditnote" />
+          <Property Name="checkreturnbills" Type="Boolean" />
         </EntityType>
         <EntityType Name="category">
           <Key>
@@ -1193,6 +1102,53 @@
           <Property Name="updated_at" Type="DateTime" Precision="3" />
           <Property Name="created_at" Type="DateTime" Precision="3" />
           <NavigationProperty Name="items" Relationship="HamroSuperMarketModel.FK__items__category___1273C1CD" FromRole="category" ToRole="item" />
+        </EntityType>
+        <EntityType Name="creditnoteitem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="unitrate" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="unitdiscount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="unittaxable" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="qty" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="nettotal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="item_id" Type="Int32" />
+          <Property Name="admin_id" Type="Int32" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sync_id" Type="Int32" />
+          <Property Name="creditnote_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="admin" Relationship="HamroSuperMarketModel.FK__creditnot__admin__5AB9788F" FromRole="creditnoteitem" ToRole="admin" />
+          <NavigationProperty Name="item" Relationship="HamroSuperMarketModel.FK__creditnot__item___59C55456" FromRole="creditnoteitem" ToRole="item" />
+        </EntityType>
+        <EntityType Name="creditnote">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fiscal_year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="creditnote_no" Type="Int32" Nullable="false" />
+          <Property Name="customer_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="customer_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="customer_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="customer_PAN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="bill_date" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="bill_id" Type="Int32" />
+          <Property Name="admin_id" Type="Int32" />
+          <Property Name="date" Type="Int32" />
+          <Property Name="reprintamount" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sync_id" Type="Int32" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="checkreturnbills" Type="Boolean" />
+          <NavigationProperty Name="admin" Relationship="HamroSuperMarketModel.FK__creditnot__admin__51300E55" FromRole="creditnote" ToRole="admin" />
+          <NavigationProperty Name="bill" Relationship="HamroSuperMarketModel.FK__creditnot__bill___503BEA1C" FromRole="creditnote" ToRole="bill" />
+          <NavigationProperty Name="customer" Relationship="HamroSuperMarketModel.FK__creditnot__custo__607251E5" FromRole="creditnote" ToRole="customer" />
         </EntityType>
         <EntityType Name="customerpaid">
           <Key>
@@ -1227,9 +1183,8 @@
           <Property Name="updated_at" Type="DateTime" Precision="3" />
           <Property Name="created_at" Type="DateTime" Precision="3" />
           <NavigationProperty Name="bills" Relationship="HamroSuperMarketModel.FK__bills__customer___1BFD2C07" FromRole="customer" ToRole="bill" />
-          <NavigationProperty Name="customerpaids" Relationship="HamroSuperMarketModel.FK__customerp__custo__05D8E0BE" FromRole="customer" ToRole="customerpaid" />
-          <NavigationProperty Name="salesreturnitems" Relationship="HamroSuperMarketModel.FK__salesretu__custo__4E88ABD4" FromRole="customer" ToRole="salesreturnitem" />
           <NavigationProperty Name="creditnotes" Relationship="HamroSuperMarketModel.FK__creditnot__custo__607251E5" FromRole="customer" ToRole="creditnote" />
+          <NavigationProperty Name="customerpaids" Relationship="HamroSuperMarketModel.FK__customerp__custo__05D8E0BE" FromRole="customer" ToRole="customerpaid" />
         </EntityType>
         <EntityType Name="employee">
           <Key>
@@ -1321,13 +1276,12 @@
           <Property Name="itemcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="buyrate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="wholesaleprice" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="billitems" Relationship="HamroSuperMarketModel.FK__billitems__item___1ED998B2" FromRole="item" ToRole="billitem" />
           <NavigationProperty Name="category" Relationship="HamroSuperMarketModel.FK__items__category___1273C1CD" FromRole="item" ToRole="category" />
-          <NavigationProperty Name="salesreturnitems" Relationship="HamroSuperMarketModel.FK__salesretu__item___4D94879B" FromRole="item" ToRole="salesreturnitem" />
+          <NavigationProperty Name="creditnoteitems" Relationship="HamroSuperMarketModel.FK__creditnot__item___59C55456" FromRole="item" ToRole="creditnoteitem" />
           <NavigationProperty Name="supplyitems" Relationship="HamroSuperMarketModel.FK__supplyite__item___267ABA7A" FromRole="item" ToRole="supplyitem" />
           <NavigationProperty Name="variances" Relationship="HamroSuperMarketModel.FK__variances__item___15502E78" FromRole="item" ToRole="variance" />
-          <Property Name="wholesaleprice" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="creditnoteitems" Relationship="HamroSuperMarketModel.FK__creditnot__item___59C55456" FromRole="item" ToRole="creditnoteitem" />
         </EntityType>
         <EntityType Name="payment">
           <Key>
@@ -1365,40 +1319,6 @@
           <Property Name="tomonth" Type="Int32" />
           <Property Name="toyear" Type="Int32" />
           <NavigationProperty Name="employee" Relationship="HamroSuperMarketModel.FK__salaries__employ__2B3F6F97" FromRole="salary" ToRole="employee" />
-        </EntityType>
-        <EntityType Name="salesreturnitem">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="item_id" Type="Int32" />
-          <Property Name="customer_id" Type="Int32" />
-          <Property Name="date" Type="Int32" />
-          <Property Name="qty" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="dis" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="updated_at" Type="DateTime" Precision="3" />
-          <Property Name="created_at" Type="DateTime" Precision="3" />
-          <Property Name="sync_at" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="customer" Relationship="HamroSuperMarketModel.FK__salesretu__custo__4E88ABD4" FromRole="salesreturnitem" ToRole="customer" />
-          <NavigationProperty Name="item" Relationship="HamroSuperMarketModel.FK__salesretu__item___4D94879B" FromRole="salesreturnitem" ToRole="item" />
-          <NavigationProperty Name="salesreturns" Relationship="HamroSuperMarketModel.FK__salesretu__sales__5165187F" FromRole="salesreturnitem" ToRole="salesreturn" />
-        </EntityType>
-        <EntityType Name="salesreturn">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="grosstotal" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="due" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="nettotal" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="returnss" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="salesreturnitem_id" Type="Int32" />
-          <Property Name="updated_at" Type="DateTime" Precision="3" />
-          <Property Name="created_at" Type="DateTime" Precision="3" />
-          <Property Name="sync_at" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="salesreturnitem" Relationship="HamroSuperMarketModel.FK__salesretu__sales__5165187F" FromRole="salesreturn" ToRole="salesreturnitem" />
         </EntityType>
         <EntityType Name="supplieradvance">
           <Key>
@@ -1517,6 +1437,30 @@
           <NavigationProperty Name="supplierpaids" Relationship="HamroSuperMarketModel.FK__supplierp__suppl__02FC7413" FromRole="vendor" ToRole="supplierpaid" />
           <NavigationProperty Name="supplies" Relationship="HamroSuperMarketModel.FK__supplies__vendor__22AA2996" FromRole="vendor" ToRole="supply" />
         </EntityType>
+        <Association Name="FK__creditnot__admin__51300E55">
+          <End Type="HamroSuperMarketModel.admin" Role="admin" Multiplicity="0..1" />
+          <End Type="HamroSuperMarketModel.creditnote" Role="creditnote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditnote">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__creditnot__admin__5AB9788F">
+          <End Type="HamroSuperMarketModel.admin" Role="admin" Multiplicity="0..1" />
+          <End Type="HamroSuperMarketModel.creditnoteitem" Role="creditnoteitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditnoteitem">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__advances__employ__2E1BDC42">
           <End Type="HamroSuperMarketModel.employee" Role="employee" Multiplicity="0..1" />
           <End Type="HamroSuperMarketModel.advance" Role="advance" Multiplicity="*" />
@@ -1589,6 +1533,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__creditnot__bill___503BEA1C">
+          <End Type="HamroSuperMarketModel.bill" Role="bill" Multiplicity="0..1" />
+          <End Type="HamroSuperMarketModel.creditnote" Role="creditnote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bill">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditnote">
+              <PropertyRef Name="bill_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__items__category___1273C1CD">
           <End Type="HamroSuperMarketModel.category" Role="category" Multiplicity="0..1" />
           <End Type="HamroSuperMarketModel.item" Role="item" Multiplicity="*" />
@@ -1598,6 +1554,30 @@
             </Principal>
             <Dependent Role="item">
               <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__creditnot__item___59C55456">
+          <End Type="HamroSuperMarketModel.item" Role="item" Multiplicity="0..1" />
+          <End Type="HamroSuperMarketModel.creditnoteitem" Role="creditnoteitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditnoteitem">
+              <PropertyRef Name="item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__creditnot__custo__607251E5">
+          <End Type="HamroSuperMarketModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="HamroSuperMarketModel.creditnote" Role="creditnote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditnote">
+              <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1634,18 +1614,6 @@
             </Principal>
             <Dependent Role="customerpaid">
               <PropertyRef Name="payment_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__salesretu__custo__4E88ABD4">
-          <End Type="HamroSuperMarketModel.customer" Role="customer" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.salesreturnitem" Role="salesreturnitem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="salesreturnitem">
-              <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1733,18 +1701,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__salesretu__item___4D94879B">
-          <End Type="HamroSuperMarketModel.item" Role="item" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.salesreturnitem" Role="salesreturnitem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="salesreturnitem">
-              <PropertyRef Name="item_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__supplyite__item___267ABA7A">
           <End Type="HamroSuperMarketModel.item" Role="item" Multiplicity="0..1" />
           <End Type="HamroSuperMarketModel.supplyitem" Role="supplyitem" Multiplicity="*" />
@@ -1778,18 +1734,6 @@
             </Principal>
             <Dependent Role="supplierpaid">
               <PropertyRef Name="payment_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__salesretu__sales__5165187F">
-          <End Type="HamroSuperMarketModel.salesreturnitem" Role="salesreturnitem" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.salesreturn" Role="salesreturn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="salesreturnitem">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="salesreturn">
-              <PropertyRef Name="salesreturnitem_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1838,112 +1782,6 @@
             </Principal>
             <Dependent Role="supplyitem">
               <PropertyRef Name="supply_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="creditnoteitem">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="date" Type="Int32" />
-          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="unitrate" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="unitdiscount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="unittaxable" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="qty" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="nettotal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="item_id" Type="Int32" />
-          <Property Name="admin_id" Type="Int32" />
-          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="sync_id" Type="Int32" />
-          <NavigationProperty Name="admin" Relationship="HamroSuperMarketModel.FK__creditnot__admin__5AB9788F" FromRole="creditnoteitem" ToRole="admin" />
-          <NavigationProperty Name="item" Relationship="HamroSuperMarketModel.FK__creditnot__item___59C55456" FromRole="creditnoteitem" ToRole="item" />
-          <Property Name="creditnote_id" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="creditnote">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fiscal_year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="creditnote_no" Type="Int32" Nullable="false" />
-          <Property Name="customer_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="customer_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="customer_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="customer_PAN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="bill_date" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="bill_id" Type="Int32" />
-          <Property Name="admin_id" Type="Int32" />
-          <Property Name="date" Type="Int32" />
-          <Property Name="reprintamount" Type="Int32" Nullable="false" />
-          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="sync_id" Type="Int32" />
-          <NavigationProperty Name="admin" Relationship="HamroSuperMarketModel.FK__creditnot__admin__51300E55" FromRole="creditnote" ToRole="admin" />
-          <NavigationProperty Name="bill" Relationship="HamroSuperMarketModel.FK__creditnot__bill___503BEA1C" FromRole="creditnote" ToRole="bill" />
-          <Property Name="customer_id" Type="Int32" />
-          <NavigationProperty Name="customer" Relationship="HamroSuperMarketModel.FK__creditnot__custo__607251E5" FromRole="creditnote" ToRole="customer" />
-        </EntityType>
-        <Association Name="FK__creditnot__admin__51300E55">
-          <End Type="HamroSuperMarketModel.admin" Role="admin" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.creditnote" Role="creditnote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admin">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="creditnote">
-              <PropertyRef Name="admin_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__creditnot__admin__5AB9788F">
-          <End Type="HamroSuperMarketModel.admin" Role="admin" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.creditnoteitem" Role="creditnoteitem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admin">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="creditnoteitem">
-              <PropertyRef Name="admin_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__creditnot__bill___503BEA1C">
-          <End Type="HamroSuperMarketModel.bill" Role="bill" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.creditnote" Role="creditnote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="bill">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="creditnote">
-              <PropertyRef Name="bill_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__creditnot__item___59C55456">
-          <End Type="HamroSuperMarketModel.item" Role="item" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.creditnoteitem" Role="creditnoteitem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="creditnoteitem">
-              <PropertyRef Name="item_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__creditnot__custo__607251E5">
-          <End Type="HamroSuperMarketModel.customer" Role="customer" Multiplicity="0..1" />
-          <End Type="HamroSuperMarketModel.creditnote" Role="creditnote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="creditnote">
-              <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2006,6 +1844,7 @@
           <EntitySetMapping Name="bills">
             <EntityTypeMapping TypeName="HamroSuperMarketModel.bill">
               <MappingFragment StoreEntitySet="bills">
+                <ScalarProperty Name="checkreturnbills" ColumnName="checkreturnbills" />
                 <ScalarProperty Name="returns" ColumnName="returns" />
                 <ScalarProperty Name="ficialyear_id" ColumnName="ficialyear_id" />
                 <ScalarProperty Name="payment_id" ColumnName="payment_id" />
@@ -2037,6 +1876,50 @@
                 <ScalarProperty Name="lastsync" ColumnName="lastsync" />
                 <ScalarProperty Name="sync_id" ColumnName="sync_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditnoteitems">
+            <EntityTypeMapping TypeName="HamroSuperMarketModel.creditnoteitem">
+              <MappingFragment StoreEntitySet="creditnoteitems">
+                <ScalarProperty Name="creditnote_id" ColumnName="creditnote_id" />
+                <ScalarProperty Name="sync_id" ColumnName="sync_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="nettotal" ColumnName="nettotal" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="unittaxable" ColumnName="unittaxable" />
+                <ScalarProperty Name="unitdiscount" ColumnName="unitdiscount" />
+                <ScalarProperty Name="unitrate" ColumnName="unitrate" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditnotes">
+            <EntityTypeMapping TypeName="HamroSuperMarketModel.creditnote">
+              <MappingFragment StoreEntitySet="creditnotes">
+                <ScalarProperty Name="checkreturnbills" ColumnName="checkreturnbills" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="sync_id" ColumnName="sync_id" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="reprintamount" ColumnName="reprintamount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="bill_date" ColumnName="bill_date" />
+                <ScalarProperty Name="customer_PAN" ColumnName="customer_PAN" />
+                <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="creditnote_no" ColumnName="creditnote_no" />
+                <ScalarProperty Name="fiscal_year" ColumnName="fiscal_year" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2194,38 +2077,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="salesreturnitems">
-            <EntityTypeMapping TypeName="HamroSuperMarketModel.salesreturnitem">
-              <MappingFragment StoreEntitySet="salesreturnitems">
-                <ScalarProperty Name="sync_at" ColumnName="sync_at" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="dis" ColumnName="dis" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="qty" ColumnName="qty" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="item_id" ColumnName="item_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="salesreturns">
-            <EntityTypeMapping TypeName="HamroSuperMarketModel.salesreturn">
-              <MappingFragment StoreEntitySet="salesreturns">
-                <ScalarProperty Name="sync_at" ColumnName="sync_at" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="salesreturnitem_id" ColumnName="salesreturnitem_id" />
-                <ScalarProperty Name="returnss" ColumnName="returnss" />
-                <ScalarProperty Name="discount" ColumnName="discount" />
-                <ScalarProperty Name="nettotal" ColumnName="nettotal" />
-                <ScalarProperty Name="due" ColumnName="due" />
-                <ScalarProperty Name="grosstotal" ColumnName="grosstotal" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="supplieradvances">
             <EntityTypeMapping TypeName="HamroSuperMarketModel.supplieradvance">
               <MappingFragment StoreEntitySet="supplieradvances">
@@ -2329,49 +2180,6 @@
                 <ScalarProperty Name="phoneno" ColumnName="phoneno" />
                 <ScalarProperty Name="adress" ColumnName="adress" />
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="creditnoteitems">
-            <EntityTypeMapping TypeName="HamroSuperMarketModel.creditnoteitem">
-              <MappingFragment StoreEntitySet="creditnoteitems">
-                <ScalarProperty Name="creditnote_id" ColumnName="creditnote_id" />
-                <ScalarProperty Name="sync_id" ColumnName="sync_id" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
-                <ScalarProperty Name="item_id" ColumnName="item_id" />
-                <ScalarProperty Name="nettotal" ColumnName="nettotal" />
-                <ScalarProperty Name="qty" ColumnName="qty" />
-                <ScalarProperty Name="unittaxable" ColumnName="unittaxable" />
-                <ScalarProperty Name="unitdiscount" ColumnName="unitdiscount" />
-                <ScalarProperty Name="unitrate" ColumnName="unitrate" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="creditnotes">
-            <EntityTypeMapping TypeName="HamroSuperMarketModel.creditnote">
-              <MappingFragment StoreEntitySet="creditnotes">
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="sync_id" ColumnName="sync_id" />
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="reprintamount" ColumnName="reprintamount" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
-                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="bill_date" ColumnName="bill_date" />
-                <ScalarProperty Name="customer_PAN" ColumnName="customer_PAN" />
-                <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
-                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
-                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
-                <ScalarProperty Name="creditnote_no" ColumnName="creditnote_no" />
-                <ScalarProperty Name="fiscal_year" ColumnName="fiscal_year" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

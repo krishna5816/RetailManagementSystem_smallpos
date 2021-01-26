@@ -270,9 +270,9 @@ namespace RetailManagementSystem.Bills_form
                 total = nettotal_txt.decVal,
                 day = Dashboard.Instance.nepaliCalender1.DATESTAMP,
                 returns = return_fltb.decVal,
+                checkreturnbills = true,
                 created_at = DateTime.Now,
                 updated_at = DateTime.Now
-
             };
             if (checkBox1.Checked == true)
             {
@@ -349,6 +349,7 @@ namespace RetailManagementSystem.Bills_form
                 total = nettotal_txt.decVal,
                 day = Dashboard.Instance.nepaliCalender1.DATESTAMP,
                 returns = return_fltb.decVal,
+                checkreturnbills=true,
                 created_at = DateTime.Now,
                 updated_at = DateTime.Now
             };

@@ -402,12 +402,6 @@
     <Compile Include="Models\salary.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\salesreturn.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\salesreturnitem.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\supplieradvance.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

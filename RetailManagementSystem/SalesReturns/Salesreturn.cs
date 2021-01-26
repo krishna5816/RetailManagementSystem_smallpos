@@ -93,11 +93,13 @@ namespace RetailManagementSystem.SalesReturns
         public bill bill_id { get; set; }
         private void materialButton1_Click_1(object sender, EventArgs e)
         {
+            
             var savecreditnote = new Models.creditnote()
             {
                 amount = betterTextBox_total.decVal,
                 bill_id = invoicenumber_text.intVal,
                 date = Dashboard.Instance.nepaliCalender1.DATESTAMP,
+                checkreturnbills=false,
                 updated_at = DateTime.Now,
                 created_at = DateTime.Now,
             };
@@ -109,6 +111,8 @@ namespace RetailManagementSystem.SalesReturns
                     customer.due -= betterTextBox_total.decVal;
                     db.Entry(customer).State = System.Data.Entity.EntityState.Modified;
                 }
+            bill.checkreturnbills = false;
+            db.Entry(bill).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             foreach (var item in betterListView_salesreturn.Items.Cast<SalesReturns.Viewer>().ToList())
             {
@@ -146,10 +150,17 @@ namespace RetailManagementSystem.SalesReturns
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
+
             betterListView_salesreturn.Items.Clear();
             var load = db.bills.Find(invoicenumber_text.intVal);
+            if (load.checkreturnbills == false)
+            {
+                CustomControls.Alert.show("Not Found", "This bills items are already added in salesreturns", 3000);
+                return;
+            }
             foreach (billitem n in db.billitems.Where(o => o.bill_id == load.id).ToList())
             {
+                
                 Viewer viewer = new Viewer(n, (int)load.day, betterListView_salesreturn.Items.Count + 1);
                 betterListView_salesreturn.Items.Add(viewer);
 

@@ -168,5 +168,14 @@ namespace RetailManagementSystem.SalesReturns
             sumcal();
 
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (betterListView_salesreturn.SelectedItems.Count > 0)
+            {
+                betterListView_salesreturn.SelectedItems[0].Remove();
+                sumcal();
+            }
+        }
     }
 }

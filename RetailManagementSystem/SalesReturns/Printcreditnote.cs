@@ -145,7 +145,7 @@ namespace RetailManagementSystem.SalesReturns
             var left = 0;
             var g = e.Graphics;
             var w = e.PageBounds.Width - 100;
-            top += printInBox(left, top, 260, g, "www.meroemart.com", p.f_12_bold, StringAlignment.Center, false);// 
+            top += printInBox(left, top, 260, g, "www.bigbyapaar.com", p.f_12_bold, StringAlignment.Center, false);// 
             top += 5;
             top += printInBox(left, top, 260, g, "Dharan-11", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
@@ -235,7 +235,7 @@ namespace RetailManagementSystem.SalesReturns
                     "",
                     "",
                     "",
-                    "Total Amount",
+                    "Total",
                     Creditnote.amount.ToString()
                     },
                        new double[]

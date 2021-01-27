@@ -16,9 +16,9 @@ namespace RetailManagementSystem.Bills_form
     public partial class Bill_form : Form
 
     {
+        HamroSuperMarketEntities db = new HamroSuperMarketEntities();
         public static bill instance;
         public static item itemintance;
-        HamroSuperMarketEntities db = new HamroSuperMarketEntities();
 
         public bill Bills { get; set; }
         public Bill_form()
@@ -110,7 +110,7 @@ namespace RetailManagementSystem.Bills_form
                 notificationMAnager1.show("Please Set your retail price of this item", 2000);
                 return;
             }
-            var sel = (item)comboBox_item.SelectedItem;
+            var sel = (comboBox_item.SelectedItem as Bills.ItemNameViwer).Item;
 
             if (comboBox_item.SelectedItem == null)
             {
@@ -141,7 +141,7 @@ namespace RetailManagementSystem.Bills_form
             }
            
 
-            var selitem = (item)comboBox_item.SelectedItem;
+            var selitem = (comboBox_item.SelectedItem as Bills.ItemNameViwer).Item;
             IEnumerable<RetailManagementSystem.Bills_form.Viwer> itemslist = betterlistview1.Items.Cast<RetailManagementSystem.Bills_form.Viwer>();
 
             if (itemslist.Count(o => o.id == selitem.id) > 0)
@@ -226,9 +226,11 @@ namespace RetailManagementSystem.Bills_form
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
-            comboBox_customer.Enabled = checkBox1.Checked;
-            customeradd_btn.Enabled = checkBox1.Checked;
+           
+                comboBox_customer.Enabled = checkBox1.Checked;
+                customeradd_btn.Enabled = checkBox1.Checked;
+                refresh();
+            
         }
 
         private void customeradd_btn_Click(object sender, EventArgs e)
@@ -254,7 +256,7 @@ namespace RetailManagementSystem.Bills_form
                 notificationMAnager1.show("please select your items and enter quantity.", 2000);
                 return;
             }
-            if (due_txt.decVal > paid_txt.decVal)
+            if (due_txt.decVal >0 && comboBox_customer.SelectedItem==null)
             {
                 notificationMAnager1.show("Please select customer for dueable amount.", 3000);
                 return;
@@ -295,8 +297,11 @@ namespace RetailManagementSystem.Bills_form
             }
             else
             {
-                notificationMAnager1.show("please select old customer or add a new customer ", 2000);
-                return;
+                if (due_txt.decVal > 0 && comboBox_customer.SelectedItem == null)
+                {
+                    notificationMAnager1.show("Please select customer for dueable amount.", 3000);
+                    return;
+                }
             }
             db.bills.Add(savebill);
             db.SaveChanges();
@@ -325,13 +330,11 @@ namespace RetailManagementSystem.Bills_form
 
         private void materialButton_SavenPrint_Click(object sender, EventArgs e)
         {
-            if (due_txt.decVal!=0)
+            
+            if (due_txt.decVal > 0 && comboBox_customer.SelectedItem == null)
             {
-                if (checkBox1.Checked==false)
-                {
                 notificationMAnager1.show("Please select customer for dueable amount.", 3000);
                 return;
-                }
             }
             if (betterlistview1.Items.Count==0)
             {
@@ -374,8 +377,11 @@ namespace RetailManagementSystem.Bills_form
             }
             else
             {
-                notificationMAnager1.show("please select old customer or add a new customer ", 2000);
-                return;
+                if (due_txt.decVal > 0 && comboBox_customer.SelectedItem == null)
+                {
+                    notificationMAnager1.show("Please select customer for dueable amount.", 3000);
+                    return;
+                }
             }
             db.bills.Add(savebill);
             db.SaveChanges();
@@ -455,7 +461,7 @@ namespace RetailManagementSystem.Bills_form
         {
             if (comboBox_item.SelectedIndex > -1)
             {
-                var sel =(item)comboBox_item.SelectedItem;
+                var sel = (comboBox_item.SelectedItem as Bills.ItemNameViwer).Item;
                 using (var kdb = new HamroSuperMarketEntities())
                 {
                     stock_qty.Text = kdb.items.Find(sel.id).stock.Value.ToString("00.00");
@@ -469,7 +475,7 @@ namespace RetailManagementSystem.Bills_form
 
         private void comboBox_customer_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //refresh();
         }
 
         private void return_fltb_TextChanged(object sender, EventArgs e)

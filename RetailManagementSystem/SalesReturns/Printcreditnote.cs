@@ -145,13 +145,13 @@ namespace RetailManagementSystem.SalesReturns
             var left = 0;
             var g = e.Graphics;
             var w = e.PageBounds.Width - 100;
-            top += printInBox(left, top, 260, g, "www.bigbyapaar.com", p.f_12_bold, StringAlignment.Center, false);// 
+            top += printInBox(left, top, 260, g, "demo sales return", p.f_12_bold, StringAlignment.Center, false);// 
             top += 5;
-            top += printInBox(left, top, 260, g, "Dharan-11", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "demo", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
-            top += printInBox(left, top, 260, g, "Vat: 611020026", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Vat: asdfaf", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
-            top += printInBox(left, top, 260, g, "Phone:9829380930", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Phone:99999990", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
             top += printInBox(left, top, 260, g, "Sales Return", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;

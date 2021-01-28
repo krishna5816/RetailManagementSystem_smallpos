@@ -82,12 +82,17 @@ namespace RetailManagementSystem
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-
+            
             using (var db = new Models.HamroSuperMarketEntities())
             {
                 if (db.admins.Count(o => o.name ==username_txt.Text && o.pass == password_txt.Text) > 0)
                 {
                     Dashboard obj = new Dashboard();
+                    if (Dashboard.Instance.nepaliCalender1.DATESTAMP > 20771115)
+                    {
+                        CustomControls.Alert.show("Expire", "your software date is expire please please contact with Needtechnosoft for renewable", 4000);
+                        return;
+                    }
                     obj.FormClosed += Obj_FormClosed;
                     obj.Show();
                     this.Hide();

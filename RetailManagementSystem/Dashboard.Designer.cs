@@ -33,6 +33,7 @@
             System.Windows.Forms.Timer Clocktimer;
             RetailControls.NepDate nepDate1 = new RetailControls.NepDate();
             this.menu_panel = new System.Windows.Forms.Panel();
+            this.materialButton_salesreturn = new RetailControls.MaterialButton();
             this.add_stock = new RetailControls.MaterialButton();
             this.materialButton1 = new RetailControls.MaterialButton();
             this.reports = new RetailControls.MaterialButton();
@@ -50,7 +51,6 @@
             this.ClockLabel = new System.Windows.Forms.Label();
             this.notificationMAnager1 = new RetailControls.NotificationMAnager(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
-            this.materialButton_salesreturn = new RetailControls.MaterialButton();
             Clocktimer = new System.Windows.Forms.Timer(this.components);
             this.menu_panel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,6 +83,26 @@
             this.menu_panel.Size = new System.Drawing.Size(356, 425);
             this.menu_panel.TabIndex = 0;
             this.menu_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // materialButton_salesreturn
+            // 
+            this.materialButton_salesreturn.BackColor = System.Drawing.Color.White;
+            this.materialButton_salesreturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialButton_salesreturn.FlatAppearance.BorderSize = 0;
+            this.materialButton_salesreturn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.materialButton_salesreturn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialButton_salesreturn.ForeColor = System.Drawing.Color.Black;
+            this.materialButton_salesreturn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.materialButton_salesreturn.HoverTextColor = System.Drawing.Color.Empty;
+            this.materialButton_salesreturn.Location = new System.Drawing.Point(0, 230);
+            this.materialButton_salesreturn.Margin = new System.Windows.Forms.Padding(0);
+            this.materialButton_salesreturn.Name = "materialButton_salesreturn";
+            this.materialButton_salesreturn.Size = new System.Drawing.Size(356, 30);
+            this.materialButton_salesreturn.TabIndex = 13;
+            this.materialButton_salesreturn.Text = "Sales Return";
+            this.materialButton_salesreturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.materialButton_salesreturn.UseVisualStyleBackColor = false;
+            this.materialButton_salesreturn.Click += new System.EventHandler(this.materialButton_salesreturn_Click);
             // 
             // add_stock
             // 
@@ -301,16 +321,16 @@
             // nepaliCalender1
             // 
             this.nepaliCalender1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            nepDate1.Day = 8;
+            nepDate1.Day = 15;
             nepDate1.Month = 10;
             nepDate1.MonthName = "Magh";
             nepDate1.WeekDay = 5;
             nepDate1.WeekDayName = "Thursday";
             nepDate1.Year = 2077;
             this.nepaliCalender1.date = nepDate1;
-            this.nepaliCalender1.DATESTAMP = 20771008;
+            this.nepaliCalender1.DATESTAMP = 20771015;
             this.nepaliCalender1.Enabled = false;
-            this.nepaliCalender1.engdate = new System.DateTime(2021, 1, 21, 0, 0, 0, 0);
+            this.nepaliCalender1.engdate = new System.DateTime(2021, 1, 28, 0, 0, 0, 0);
             this.nepaliCalender1.Location = new System.Drawing.Point(718, 16);
             this.nepaliCalender1.Margin = new System.Windows.Forms.Padding(4);
             this.nepaliCalender1.Name = "nepaliCalender1";
@@ -324,9 +344,9 @@
             this.name_lbl.ForeColor = System.Drawing.Color.White;
             this.name_lbl.Location = new System.Drawing.Point(67, 12);
             this.name_lbl.Name = "name_lbl";
-            this.name_lbl.Size = new System.Drawing.Size(288, 28);
+            this.name_lbl.Size = new System.Drawing.Size(56, 28);
             this.name_lbl.TabIndex = 3;
-            this.name_lbl.Text = "Switch On Digital Pvt.Ltd";
+            this.name_lbl.Text = "Title";
             // 
             // ClockLabel
             // 
@@ -350,26 +370,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1008, 425);
             this.panel4.TabIndex = 5;
-            // 
-            // materialButton_salesreturn
-            // 
-            this.materialButton_salesreturn.BackColor = System.Drawing.Color.White;
-            this.materialButton_salesreturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialButton_salesreturn.FlatAppearance.BorderSize = 0;
-            this.materialButton_salesreturn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.materialButton_salesreturn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialButton_salesreturn.ForeColor = System.Drawing.Color.Black;
-            this.materialButton_salesreturn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.materialButton_salesreturn.HoverTextColor = System.Drawing.Color.Empty;
-            this.materialButton_salesreturn.Location = new System.Drawing.Point(0, 230);
-            this.materialButton_salesreturn.Margin = new System.Windows.Forms.Padding(0);
-            this.materialButton_salesreturn.Name = "materialButton_salesreturn";
-            this.materialButton_salesreturn.Size = new System.Drawing.Size(356, 30);
-            this.materialButton_salesreturn.TabIndex = 13;
-            this.materialButton_salesreturn.Text = "Sales Return";
-            this.materialButton_salesreturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialButton_salesreturn.UseVisualStyleBackColor = false;
-            this.materialButton_salesreturn.Click += new System.EventHandler(this.materialButton_salesreturn_Click);
             // 
             // Dashboard
             // 

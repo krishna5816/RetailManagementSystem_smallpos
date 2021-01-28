@@ -39,6 +39,7 @@
             this.button_Reset = new System.Windows.Forms.Button();
             this.button_load = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButton_daily = new System.Windows.Forms.RadioButton();
             this.checkBox_mr0 = new System.Windows.Forms.CheckBox();
             this.nepaliCalender_sales_end = new RetailControls.NepaliCalender();
             this.nepaliCalender2 = new RetailControls.NepaliCalender();
@@ -53,7 +54,12 @@
             this.comboBox_sales = new System.Windows.Forms.ComboBox();
             this.label_totalmargin = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButton_daily = new System.Windows.Forms.RadioButton();
+            this.label_totalcash = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_totalcredit = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.label_dis = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +94,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 146);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(892, 335);
+            this.listView1.Size = new System.Drawing.Size(950, 335);
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -100,7 +106,7 @@
             this.panel3.Controls.Add(this.button_export);
             this.panel3.Controls.Add(this.button_Reset);
             this.panel3.Controls.Add(this.button_load);
-            this.panel3.Location = new System.Drawing.Point(683, 2);
+            this.panel3.Location = new System.Drawing.Point(741, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(212, 138);
             this.panel3.TabIndex = 20;
@@ -160,9 +166,19 @@
             this.panel2.Controls.Add(this.comboBox_sales);
             this.panel2.Location = new System.Drawing.Point(2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(677, 138);
+            this.panel2.Size = new System.Drawing.Size(735, 138);
             this.panel2.TabIndex = 19;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // radioButton_daily
+            // 
+            this.radioButton_daily.AutoSize = true;
+            this.radioButton_daily.Location = new System.Drawing.Point(293, 6);
+            this.radioButton_daily.Name = "radioButton_daily";
+            this.radioButton_daily.Size = new System.Drawing.Size(57, 23);
+            this.radioButton_daily.TabIndex = 16;
+            this.radioButton_daily.Text = "Daily";
+            this.radioButton_daily.UseVisualStyleBackColor = true;
             // 
             // checkBox_mr0
             // 
@@ -179,15 +195,15 @@
             // 
             // nepaliCalender_sales_end
             // 
-            nepDate1.Day = 2;
+            nepDate1.Day = 16;
             nepDate1.Month = 10;
             nepDate1.MonthName = "Magh";
             nepDate1.WeekDay = 6;
             nepDate1.WeekDayName = "Friday";
             nepDate1.Year = 2077;
             this.nepaliCalender_sales_end.date = nepDate1;
-            this.nepaliCalender_sales_end.DATESTAMP = 20771002;
-            this.nepaliCalender_sales_end.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
+            this.nepaliCalender_sales_end.DATESTAMP = 20771016;
+            this.nepaliCalender_sales_end.engdate = new System.DateTime(2021, 1, 29, 0, 0, 0, 0);
             this.nepaliCalender_sales_end.Location = new System.Drawing.Point(43, 96);
             this.nepaliCalender_sales_end.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.nepaliCalender_sales_end.Name = "nepaliCalender_sales_end";
@@ -196,15 +212,15 @@
             // 
             // nepaliCalender2
             // 
-            nepDate2.Day = 2;
+            nepDate2.Day = 16;
             nepDate2.Month = 10;
             nepDate2.MonthName = "Magh";
             nepDate2.WeekDay = 6;
             nepDate2.WeekDayName = "Friday";
             nepDate2.Year = 2077;
             this.nepaliCalender2.date = nepDate2;
-            this.nepaliCalender2.DATESTAMP = 20771002;
-            this.nepaliCalender2.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
+            this.nepaliCalender2.DATESTAMP = 20771016;
+            this.nepaliCalender2.engdate = new System.DateTime(2021, 1, 29, 0, 0, 0, 0);
             this.nepaliCalender2.Location = new System.Drawing.Point(378, 381);
             this.nepaliCalender2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.nepaliCalender2.Name = "nepaliCalender2";
@@ -213,15 +229,15 @@
             // 
             // nepaliCalender_sales_start
             // 
-            nepDate3.Day = 2;
+            nepDate3.Day = 16;
             nepDate3.Month = 10;
             nepDate3.MonthName = "Magh";
             nepDate3.WeekDay = 6;
             nepDate3.WeekDayName = "Friday";
             nepDate3.Year = 2077;
             this.nepaliCalender_sales_start.date = nepDate3;
-            this.nepaliCalender_sales_start.DATESTAMP = 20771002;
-            this.nepaliCalender_sales_start.engdate = new System.DateTime(2021, 1, 15, 0, 0, 0, 0);
+            this.nepaliCalender_sales_start.DATESTAMP = 20771016;
+            this.nepaliCalender_sales_start.engdate = new System.DateTime(2021, 1, 29, 0, 0, 0, 0);
             this.nepaliCalender_sales_start.Location = new System.Drawing.Point(43, 67);
             this.nepaliCalender_sales_start.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.nepaliCalender_sales_start.Name = "nepaliCalender_sales_start";
@@ -290,7 +306,7 @@
             this.listBox_categories.Location = new System.Drawing.Point(450, 39);
             this.listBox_categories.Name = "listBox_categories";
             this.listBox_categories.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox_categories.Size = new System.Drawing.Size(219, 89);
+            this.listBox_categories.Size = new System.Drawing.Size(277, 89);
             this.listBox_categories.TabIndex = 6;
             // 
             // comboBox_sales_week
@@ -329,7 +345,7 @@
             // 
             this.label_totalmargin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_totalmargin.AutoSize = true;
-            this.label_totalmargin.Location = new System.Drawing.Point(306, 490);
+            this.label_totalmargin.Location = new System.Drawing.Point(795, 490);
             this.label_totalmargin.Name = "label_totalmargin";
             this.label_totalmargin.Size = new System.Drawing.Size(17, 19);
             this.label_totalmargin.TabIndex = 25;
@@ -339,27 +355,83 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(204, 490);
+            this.label4.Location = new System.Drawing.Point(705, 490);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 19);
             this.label4.TabIndex = 24;
             this.label4.Text = "Total Margin:";
             // 
-            // radioButton_daily
+            // label_totalcash
             // 
-            this.radioButton_daily.AutoSize = true;
-            this.radioButton_daily.Location = new System.Drawing.Point(293, 6);
-            this.radioButton_daily.Name = "radioButton_daily";
-            this.radioButton_daily.Size = new System.Drawing.Size(57, 23);
-            this.radioButton_daily.TabIndex = 16;
-            this.radioButton_daily.Text = "Daily";
-            this.radioButton_daily.UseVisualStyleBackColor = true;
+            this.label_totalcash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_totalcash.AutoSize = true;
+            this.label_totalcash.Location = new System.Drawing.Point(423, 490);
+            this.label_totalcash.Name = "label_totalcash";
+            this.label_totalcash.Size = new System.Drawing.Size(17, 19);
+            this.label_totalcash.TabIndex = 27;
+            this.label_totalcash.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(378, 490);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 19);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Cash";
+            // 
+            // label_totalcredit
+            // 
+            this.label_totalcredit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_totalcredit.AutoSize = true;
+            this.label_totalcredit.Location = new System.Drawing.Point(583, 490);
+            this.label_totalcredit.Name = "label_totalcredit";
+            this.label_totalcredit.Size = new System.Drawing.Size(17, 19);
+            this.label_totalcredit.TabIndex = 29;
+            this.label_totalcredit.Text = "0";
+            // 
+            // label
+            // 
+            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(534, 490);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(46, 19);
+            this.label.TabIndex = 28;
+            this.label.Text = "Credit";
+            // 
+            // label_dis
+            // 
+            this.label_dis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_dis.AutoSize = true;
+            this.label_dis.Location = new System.Drawing.Point(311, 490);
+            this.label_dis.Name = "label_dis";
+            this.label_dis.Size = new System.Drawing.Size(17, 19);
+            this.label_dis.TabIndex = 31;
+            this.label_dis.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(279, 490);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 19);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Dis";
             // 
             // SalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label_dis);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label_totalcredit);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.label_totalcash);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label_totalmargin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label_totalamount);
@@ -370,7 +442,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SalesReport";
-            this.Size = new System.Drawing.Size(900, 520);
+            this.Size = new System.Drawing.Size(958, 520);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -404,5 +476,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBox_mr0;
         private System.Windows.Forms.RadioButton radioButton_daily;
+        private System.Windows.Forms.Label label_totalcash;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_totalcredit;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label label_dis;
+        private System.Windows.Forms.Label label7;
     }
 }

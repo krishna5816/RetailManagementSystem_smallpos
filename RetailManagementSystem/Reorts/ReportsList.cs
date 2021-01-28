@@ -36,5 +36,10 @@ namespace RetailManagementSystem.REPORTS
         {
             this.Close();
         }
+
+        private void ReportsList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

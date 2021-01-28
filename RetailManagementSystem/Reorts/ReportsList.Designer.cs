@@ -111,6 +111,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ReportsList_Load);
             this.tabControl_expense.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

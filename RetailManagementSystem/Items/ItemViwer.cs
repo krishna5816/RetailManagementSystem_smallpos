@@ -64,7 +64,7 @@ namespace RetailManagementSystem.ITEMS
             wholwsaleoprice = itm.wholesaleprice;
             this.SubItems[0].Text = sn.ToString();
             byrate = itm.buyrate==null?0:itm.buyrate;
-            sn = sn + 1;
+           sn += 1;
         }
         
         public void update(item itm)

@@ -26,10 +26,10 @@ namespace RetailManagementSystem.ITEMS
                 
                 List<ItemViwer> itemViwers=new List<ItemViwer>();
                 List<string> strs = new List<string>();
-
+                var i = 1;
                 foreach (item n in db.items.ToList())
                 {
-                    itemViwers.Add( new ItemViwer(n,betterListView1.Items.Count+1));
+                    itemViwers.Add( new ItemViwer(n,i++));
                     strs.Add(n.name);
 
                 }

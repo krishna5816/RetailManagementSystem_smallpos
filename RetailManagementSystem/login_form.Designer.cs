@@ -33,8 +33,6 @@
             this.materialButton1 = new RetailControls.MaterialButton();
             this.username_txt = new cmscontrols.bettertextbox();
             this.password_txt = new cmscontrols.bettertextbox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel_login = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -116,22 +114,6 @@
             this.password_txt.Click += new System.EventHandler(this.password_txt_Click);
             this.password_txt.Enter += new System.EventHandler(this.password_txt_Enter);
             this.password_txt.Leave += new System.EventHandler(this.password_txt_Leave);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Green;
-            this.panel3.Location = new System.Drawing.Point(25, 401);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(218, 1);
-            this.panel3.TabIndex = 11;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Green;
-            this.panel4.Location = new System.Drawing.Point(25, 348);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(218, 1);
-            this.panel4.TabIndex = 12;
             // 
             // panel_login
             // 
@@ -283,9 +265,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1065, 561);
             this.Controls.Add(this.panel_login);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.materialButton3);
-            this.Controls.Add(this.panel3);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(166)))));
@@ -309,8 +289,6 @@
         private RetailControls.MaterialButton materialButton1;
         private cmscontrols.bettertextbox username_txt;
         private cmscontrols.bettertextbox password_txt;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel_login;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;

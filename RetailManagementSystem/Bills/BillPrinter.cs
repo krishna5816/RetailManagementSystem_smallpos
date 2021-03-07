@@ -145,13 +145,13 @@ namespace RetailManagementSystem.Bills_form
             var left = 0;
             var g = e.Graphics;
             var w = e.PageBounds.Width - 100;
-            top += printInBox(left, top, 260, g, "demo", p.f_12_bold, StringAlignment.Center, false);// 
+            top += printInBox(left, top, 260, g, "www.bigbyapaar.com", p.f_12_bold, StringAlignment.Center, false);// 
             top += 5;
-            top += printInBox(left, top, 260, g, "demo", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Dharan", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
-            top += printInBox(left, top, 260, g, "Vat: demo", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Vat:605206010", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
-            top += printInBox(left, top, 260, g, "Phone:demo", p.f_7_bold, StringAlignment.Center, false);//
+            top += printInBox(left, top, 260, g, "Phone:9829380930", p.f_7_bold, StringAlignment.Center, false);//
             top += 5;
 
             var height = e.PageSettings.PaperSize.Height;
